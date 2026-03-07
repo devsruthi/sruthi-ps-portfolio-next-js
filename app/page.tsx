@@ -1,7 +1,21 @@
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/home/Hero";
+import { AboutSection } from "@/components/home/AboutSection";
+import { SkillsSection } from "@/components/home/SkillsSection";
+import { ExpertiseSection } from "@/components/home/ExpertiseSection";
+
 export default function Home() {
   return (
-    <main>
-      <h1>Hello World, I am Sruthi PS, Welcome to my portfolio page</h1>
-    </main>
+    <>
+      <Header />
+      <main className="flex flex-col items-center">
+        <Hero />
+        <AboutSection />
+        <SkillsSection />
+        <ExpertiseSection />
+      </main>
+      <Footer />
+    </>
   );
 }
