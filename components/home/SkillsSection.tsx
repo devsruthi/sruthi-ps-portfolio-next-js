@@ -12,7 +12,7 @@ export function SkillsSection() {
         <div className="flex-1">
           <p className="text-left text-[28px]">{SKILLS.description}</p>
           <p className="mt-4 text-justify leading-7 opacity-50">
-            {SKILLS.placeholder}
+            {SKILLS.summary}
           </p>
         </div>
         <div

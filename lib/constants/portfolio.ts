@@ -32,10 +32,9 @@ export const ABOUT: About = {
 };
 
 export const SKILLS: Skills = {
-  description:
-    "All the skills that I have in that field of work are mentioned",
-  placeholder:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  description: "Technical skills I use in web and mobile development",
+  summary:
+    "I focus on building responsive web apps with React and TypeScript and cross-platform mobile apps with React Native. I use state management (Redux, RTK Query), testing (Jest), and cloud services (Firebase, AWS, GCP) to deliver scalable, user-centric solutions. I follow best practices in version control, CI/CD, and agile workflows.",
   items: [
     { name: "React JS", percentage: 80 },
     { name: "React Native", percentage: 70 },

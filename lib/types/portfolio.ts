@@ -28,7 +28,7 @@ export interface SkillItem {
 
 export interface Skills {
   readonly description: string;
-  readonly placeholder: string;
+  readonly summary: string;
   readonly items: readonly SkillItem[];
 }
 
