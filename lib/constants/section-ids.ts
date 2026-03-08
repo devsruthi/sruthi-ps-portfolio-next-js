@@ -3,6 +3,7 @@ export const SECTION_IDS = {
   ABOUT: "about_me",
   SKILLS: "skills",
   EXPERTISE: "expertise",
+  CONTACT: "contact",
 } as const;
 
 export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];

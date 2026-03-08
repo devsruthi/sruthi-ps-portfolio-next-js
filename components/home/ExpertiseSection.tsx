@@ -8,7 +8,7 @@ export function ExpertiseSection() {
       className="mx-auto my-[65px] w-[60%] text-center max-[1100px]:w-[90%]"
     >
       <SectionTitle label="EXPERTISE" />
-      <div className="grid grid-cols-3 gap-5 pb-[200px]">
+      <div className="grid grid-cols-3 gap-5 pb-12">
         {EXPERTISE_LIST.map((item) => (
           <div
             key={item}

@@ -33,3 +33,9 @@ export interface Skills {
 }
 
 export type ExpertiseList = readonly string[];
+
+export interface ContactFormData {
+  readonly name: string;
+  readonly email: string;
+  readonly message: string;
+}
