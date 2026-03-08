@@ -8,6 +8,7 @@ export {
   CONTACT_PLACEHOLDERS,
   CONTACT_VALIDATION_ERRORS,
 } from "./contact";
+export { TABLES } from "./db";
 export { NAV_ITEMS } from "./navigation";
 export {
   ABOUT,

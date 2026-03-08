@@ -13,6 +13,7 @@ import {
   sanitizeString,
   validateEmail,
 } from "@/lib/utils";
+import { saveContactMessage } from "@/lib/services/contact-messages";
 
 export async function sendContactForm(
   _prev: unknown,
@@ -81,6 +82,13 @@ export async function sendContactForm(
         ReplyToAddresses: [email],
       })
     );
+
+    try {
+      await saveContactMessage({ name, email, message });
+    } catch (dbErr) {
+      console.error("Contact message saved to email but Supabase save failed:", dbErr);
+    }
+
     return { success: true };
   } catch (err) {
     console.error("SES send failed:", err);
