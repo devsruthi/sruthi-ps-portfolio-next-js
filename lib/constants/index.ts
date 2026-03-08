@@ -1,3 +1,4 @@
+export { ADMIN_MESSAGES } from "./admin";
 export { ASSET_PATHS, LAYOUT } from "./assets";
 export {
   CONTACT_CONFIG_ERRORS,
