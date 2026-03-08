@@ -17,4 +17,5 @@ export {
   SITE,
 } from "./portfolio";
 export { SECTION_IDS } from "./section-ids";
+export { DEFAULT_OG_IMAGE, SEO, SITE_URL } from "./site";
 export { THEME } from "./theme";
