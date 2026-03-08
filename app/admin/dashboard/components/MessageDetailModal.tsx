@@ -38,8 +38,8 @@ export function MessageDetailModal({ message, onClose }: MessageDetailModalProps
         className="w-full max-w-lg rounded-xl border border-zinc-700 bg-zinc-900 shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between border-b border-zinc-800 px-5 py-4">
-          <h2 id="message-detail-title" className="text-lg font-semibold text-white">
+        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-3 sm:px-5 sm:py-4">
+          <h2 id="message-detail-title" className="text-base font-semibold text-white sm:text-lg">
             Message details
           </h2>
           <button
@@ -53,7 +53,7 @@ export function MessageDetailModal({ message, onClose }: MessageDetailModalProps
             </svg>
           </button>
         </div>
-        <div className="space-y-4 px-5 py-4 text-sm">
+        <div className="space-y-4 px-4 py-3 text-sm sm:px-5 sm:py-4">
           <div>
             <span className="text-zinc-500">Date</span>
             <p className="mt-0.5 text-white">{formatMessageDate(message.created_at)}</p>

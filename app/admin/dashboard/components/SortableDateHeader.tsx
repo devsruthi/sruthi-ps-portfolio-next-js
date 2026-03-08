@@ -25,7 +25,7 @@ export function SortableDateHeader({ sortOrder, searchParams }: SortableDateHead
   };
 
   return (
-    <th className="px-4 py-3 font-medium text-zinc-400">
+    <th className="px-3 py-2.5 font-medium text-zinc-400 sm:px-4 sm:py-3">
       <a
         href={href}
         onClick={handleClick}

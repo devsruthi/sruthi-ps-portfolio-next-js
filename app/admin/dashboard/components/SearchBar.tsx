@@ -49,8 +49,8 @@ export function SearchBar({
   );
 
   return (
-    <div className="mb-4 flex items-center gap-2">
-      <div className="relative flex max-w-md flex-1">
+    <div className="mb-4 flex items-center gap-2 w-full max-w-md">
+      <div className="relative flex flex-1 min-w-0">
         <label htmlFor="messages-search" className="sr-only">
           Search messages
         </label>

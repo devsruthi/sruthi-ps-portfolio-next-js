@@ -22,13 +22,13 @@ export function MessagesTable({
   return (
     <>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[600px] text-left text-sm">
+        <table className="w-full min-w-[520px] text-left text-sm">
           <thead>
             <tr className="border-b border-zinc-800 bg-zinc-800/50">
               <SortableDateHeader sortOrder={sortOrder} searchParams={searchParams} />
-              <th className="px-4 py-3 font-medium text-zinc-400">Name</th>
-              <th className="px-4 py-3 font-medium text-zinc-400">Email</th>
-              <th className="px-4 py-3 font-medium text-zinc-400">Message</th>
+              <th className="px-3 py-2.5 font-medium text-zinc-400 sm:px-4 sm:py-3">Name</th>
+              <th className="px-3 py-2.5 font-medium text-zinc-400 sm:px-4 sm:py-3">Email</th>
+              <th className="px-3 py-2.5 font-medium text-zinc-400 sm:px-4 sm:py-3">Message</th>
             </tr>
           </thead>
           <tbody>
@@ -46,20 +46,20 @@ export function MessagesTable({
                 }}
                 className="cursor-pointer border-b border-zinc-800/80 transition hover:bg-zinc-800/30 focus:bg-zinc-800/30 focus:outline-none"
               >
-                <td className="whitespace-nowrap px-4 py-3 text-zinc-500">
+                <td className="whitespace-nowrap px-3 py-2.5 text-zinc-500 sm:px-4 sm:py-3">
                   {formatMessageDate(row.created_at)}
                 </td>
-                <td className="px-4 py-3 text-white">{row.name}</td>
-                <td className="px-4 py-3">
+                <td className="px-3 py-2.5 text-white sm:px-4 sm:py-3">{row.name}</td>
+                <td className="px-3 py-2.5 sm:px-4 sm:py-3">
                   <a
                     href={`mailto:${row.email}`}
-                    className="text-amber-400 hover:underline"
+                    className="text-amber-400 hover:underline break-all"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {row.email}
                   </a>
                 </td>
-                <td className="max-w-md px-4 py-3 text-zinc-300">
+                <td className="max-w-[200px] sm:max-w-md px-3 py-2.5 text-zinc-300 sm:px-4 sm:py-3">
                   <span className="line-clamp-2">{row.message}</span>
                 </td>
               </tr>
