@@ -1,7 +1,8 @@
 import { Fragment } from "react";
 import Image from "next/image";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { ABOUT, ASSET_PATHS, LAYOUT, SECTION_IDS, THEME } from "@/lib/constants";
+import { ResumeDownloadButton } from "@/components/home/ResumeDownloadButton";
+import { ABOUT, ASSET_PATHS, LAYOUT, SECTION_IDS } from "@/lib/constants";
 
 const PROFILE_IMAGE_CLASS =
   "h-auto w-full transition-transform duration-300 hover:scale-105 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,0.05))] [-webkit-mask-image:linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,0.05))]";
@@ -37,16 +38,7 @@ export function AboutSection() {
               </Fragment>
             ))}
           </div>
-          <a
-            href={ABOUT.resumeUrl}
-            download
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-[18px] rounded-[25px] px-6 py-2.5 text-[15px] text-black shadow-[1px_1px_2px_white] no-underline transition hover:opacity-90"
-            style={{ backgroundColor: THEME.COLORS.ACCENT }}
-          >
-            My Resume
-          </a>
+          <ResumeDownloadButton />
         </div>
       </div>
     </section>

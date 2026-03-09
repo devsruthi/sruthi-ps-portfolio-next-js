@@ -1,5 +1,4 @@
 import type { About, Hero, Skills, Site } from "@/lib/types";
-import { ASSET_PATHS } from "./assets";
 
 export const SITE: Site = {
   name: "Sruthi P S",
@@ -16,7 +15,6 @@ export const HERO: Hero = {
 export const ABOUT: About = {
   designation: "Software Engineer",
   bio: "I am a seasoned web and mobile app developer with a rich and dynamic career spanning five years. Throughout my professional journey, I have honed my skills in crafting innovative and efficient solutions that seamlessly blend cutting-edge technology with user-centric design.",
-  resumeUrl: ASSET_PATHS.RESUME_PDF,
   fields: [
     { label: "Phone", value: "+91- 9961870522" },
     { label: "Email", value: "sruthips395@gmail.com" },

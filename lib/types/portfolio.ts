@@ -17,7 +17,6 @@ export interface AboutField {
 export interface About {
   readonly designation: string;
   readonly bio: string;
-  readonly resumeUrl: string;
   readonly fields: readonly AboutField[];
 }
 

@@ -2,7 +2,6 @@
 export const ASSET_PATHS = {
   PROFILE_IMAGE: "/images/profile.jpg",
   WAVE_SVG: "/assets/wave.svg",
-  RESUME_PDF: "/resume.pdf",
 } as const;
 
 /** Layout/dimension constants for consistent UI. */
