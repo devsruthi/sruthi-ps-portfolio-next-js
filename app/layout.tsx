@@ -105,7 +105,10 @@ export default async function RootLayout({
         description: SEO.description,
         email,
         knowsAbout: ["React", "React Native", "TypeScript", "Web Development", "Mobile Development"],
-        sameAs: [],
+        sameAs: [
+          "https://github.com/devsruthi",
+          "https://www.linkedin.com/in/dev-sruthi-ps/",
+        ],
       },
     ],
   };
