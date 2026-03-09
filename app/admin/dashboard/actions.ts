@@ -17,6 +17,7 @@ export async function updateHeroSection(formData: FormData): Promise<{ error?: s
   const intro = String(formData.get("intro") ?? "").trim();
   const result = await updateHero({ name, intro });
   if (!result.error) {
+    revalidatePath("/");
     revalidatePath("/admin/dashboard/hero");
   }
   return result;
@@ -42,6 +43,7 @@ export async function updateAboutSection(formData: FormData): Promise<{ error?: 
   }
   const result = await updateAbout({ designation, bio, fields });
   if (!result.error) {
+    revalidatePath("/");
     revalidatePath("/admin/dashboard/about");
   }
   return result;
@@ -70,6 +72,7 @@ export async function updateSkillsSection(formData: FormData): Promise<{ error?:
   }
   const result = await updateSkills({ title, description, items });
   if (!result.error) {
+    revalidatePath("/");
     revalidatePath("/admin/dashboard/skills");
   }
   return result;
@@ -90,6 +93,7 @@ export async function updateExpertiseSection(formData: FormData): Promise<{ erro
   }
   const result = await updateExpertise({ items });
   if (!result.error) {
+    revalidatePath("/");
     revalidatePath("/admin/dashboard/expertise");
   }
   return result;
@@ -109,6 +113,7 @@ export async function uploadProfileImage(formData: FormData): Promise<{ error?: 
   if (uploadResult.error) return uploadResult;
   const updateResult = await updateAboutProfileImageKey(PROFILE_IMAGE_S3_KEY);
   if (updateResult.error) return updateResult;
+  revalidatePath("/");
   revalidatePath("/admin/dashboard/about");
   return {};
 }
@@ -128,6 +133,7 @@ export async function uploadResume(formData: FormData): Promise<{ error?: string
   const buffer = Buffer.from(await file.arrayBuffer());
   const uploadResult = await uploadResumeToS3(buffer);
   if (uploadResult.error) return uploadResult;
+  revalidatePath("/");
   revalidatePath("/admin/dashboard/about");
   return {};
 }
