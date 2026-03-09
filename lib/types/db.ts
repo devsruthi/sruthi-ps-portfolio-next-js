@@ -32,6 +32,8 @@ export interface AboutRow {
   designation: string;
   bio: string;
   fields: AboutInfoItem[];
+  /** S3 object key for profile image (e.g. about/profile.jpg). Null if not set. */
+  profile_image_key: string | null;
   created_at: string;
   updated_at: string;
 }

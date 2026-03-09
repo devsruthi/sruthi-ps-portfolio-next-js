@@ -69,12 +69,13 @@ export async function updateHero(payload: HeroUpdate): Promise<{ error?: string 
 
 /**
  * About section for the portfolio. Cached per request.
+ * Requires about table to have profile_image_key (text, nullable) for S3 profile image.
  */
 export const getAbout = cache(async (): Promise<AboutRow | null> => {
   const supabase = getSupabaseServerClient();
   const { data, error } = await supabase
     .from(TABLES.ABOUT)
-    .select("id, designation, bio, fields, created_at, updated_at")
+    .select("id, designation, bio, fields, profile_image_key, created_at, updated_at")
     .limit(1)
     .maybeSingle();
 
@@ -85,6 +86,7 @@ export const getAbout = cache(async (): Promise<AboutRow | null> => {
   if (!data) return null;
   const row = data as AboutRow;
   if (!Array.isArray(row.fields)) row.fields = [];
+  if (row.profile_image_key === undefined) row.profile_image_key = null;
   return row;
 });
 
@@ -121,6 +123,41 @@ export async function updateAbout(payload: AboutUpdate): Promise<{ error?: strin
     const { error } = await supabase.from(TABLES.ABOUT).insert({ designation, bio, fields });
     if (error) {
       console.error("Supabase about insert failed:", error);
+      return { error: error.message };
+    }
+  }
+  return {};
+}
+
+/**
+ * Update only the profile image key (after S3 upload). Creates about row if missing.
+ */
+export async function updateAboutProfileImageKey(key: string): Promise<{ error?: string }> {
+  const supabase = getSupabaseServerClient();
+  const { data: existing } = await supabase
+    .from(TABLES.ABOUT)
+    .select("id")
+    .limit(1)
+    .maybeSingle();
+
+  if (existing?.id) {
+    const { error } = await supabase
+      .from(TABLES.ABOUT)
+      .update({ profile_image_key: key })
+      .eq("id", existing.id);
+    if (error) {
+      console.error("Supabase about profile_image_key update failed:", error);
+      return { error: error.message };
+    }
+  } else {
+    const { error } = await supabase.from(TABLES.ABOUT).insert({
+      designation: "Software Engineer",
+      bio: "",
+      fields: [],
+      profile_image_key: key,
+    });
+    if (error) {
+      console.error("Supabase about insert (profile image) failed:", error);
       return { error: error.message };
     }
   }

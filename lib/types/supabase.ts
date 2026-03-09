@@ -34,8 +34,8 @@ export interface Database {
       };
       about: {
         Row: AboutRow;
-        Insert: AboutUpdate;
-        Update: Partial<AboutUpdate>;
+        Insert: AboutUpdate & { profile_image_key?: string | null };
+        Update: Partial<AboutUpdate> & { profile_image_key?: string | null };
       };
       skills: {
         Row: SkillsRow;

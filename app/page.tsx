@@ -6,6 +6,7 @@ import { SkillsSection } from "@/components/home/SkillsSection";
 import { ExpertiseSection } from "@/components/home/ExpertiseSection";
 import { ContactSection } from "@/components/contact/ContactSection";
 import { getHero, getAbout, getSkills, getExpertise } from "@/lib/services/portfolio-content";
+import { getPresignedProfileImageUrl } from "@/lib/s3/profile-image";
 import { ABOUT, EXPERTISE_LIST, HERO, SITE, SKILLS } from "@/lib/constants";
 
 export default async function Home() {
@@ -20,6 +21,9 @@ export default async function Home() {
   const designation = aboutRow?.designation ?? ABOUT.designation;
   const bio = aboutRow?.bio ?? ABOUT.bio;
   const aboutFields = aboutRow?.fields ?? [...ABOUT.fields];
+  const profileImageUrl = aboutRow?.profile_image_key
+    ? await getPresignedProfileImageUrl(aboutRow.profile_image_key)
+    : null;
   const skillsTitle = skillsRow?.title ?? SKILLS.description;
   const skillsDescription = skillsRow?.description ?? SKILLS.summary;
   const skillsItems = skillsRow?.items?.length ? skillsRow.items : [...SKILLS.items];
@@ -35,6 +39,7 @@ export default async function Home() {
           designation={designation}
           bio={bio}
           fields={aboutFields}
+          profileImageUrl={profileImageUrl}
         />
         <SkillsSection
           title={skillsTitle}
