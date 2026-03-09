@@ -5,7 +5,7 @@ import { AdminLoginForm } from "./AdminLoginForm";
 export default async function AdminLoginPage() {
   const session = await getSession();
   if (session?.admin) {
-    redirect("/admin/dashboard");
+    redirect("/admin/dashboard/hero");
   }
 
   return (
