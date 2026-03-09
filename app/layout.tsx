@@ -7,6 +7,7 @@ import {
   SITE,
   SITE_URL,
 } from "@/lib/constants";
+import { getHero, getAbout } from "@/lib/services/portfolio-content";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -23,56 +24,66 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: {
-    default: SEO.defaultTitle,
-    template: SEO.titleTemplate,
-  },
-  description: SEO.description,
-  keywords: [...SEO.keywords],
-  authors: [{ name: SITE.name, url: SITE_URL }],
-  creator: SITE.name,
-  publisher: SITE.name,
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  openGraph: {
-    type: SEO.openGraph.type,
-    locale: SEO.openGraph.locale,
-    url: SITE_URL,
-    siteName: SEO.openGraph.siteName,
-    title: SEO.defaultTitle,
-    description: SEO.description,
-    images: [
-      {
-        url: ogImageUrl,
-        width: 1200,
-        height: 630,
-        alt: `${SITE.name} - Portfolio`,
-      },
-    ],
-  },
-  twitter: {
-    card: SEO.twitter.card,
-    title: SEO.defaultTitle,
-    description: SEO.description,
-    images: [ogImageUrl],
-  },
-  robots: SEO.robots,
-  alternates: {
-    canonical: SITE_URL,
-  },
-  category: "technology",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const hero = await getHero();
+  const siteName = hero?.name ?? SITE.name;
 
-export default function RootLayout({
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: SEO.defaultTitle,
+      template: SEO.titleTemplate,
+    },
+    description: SEO.description,
+    keywords: [...SEO.keywords],
+    authors: [{ name: siteName, url: SITE_URL }],
+    creator: siteName,
+    publisher: siteName,
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    openGraph: {
+      type: SEO.openGraph.type,
+      locale: SEO.openGraph.locale,
+      url: SITE_URL,
+      siteName: SEO.openGraph.siteName,
+      title: SEO.defaultTitle,
+      description: SEO.description,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${siteName} - Portfolio`,
+        },
+      ],
+    },
+    twitter: {
+      card: SEO.twitter.card,
+      title: SEO.defaultTitle,
+      description: SEO.description,
+      images: [ogImageUrl],
+    },
+    robots: SEO.robots,
+    alternates: {
+      canonical: SITE_URL,
+    },
+    category: "technology",
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [hero, about] = await Promise.all([getHero(), getAbout()]);
+  const siteName = hero?.name ?? SITE.name;
+  const jobTitle = about?.designation ?? ABOUT.designation;
+  const email = about?.fields?.find((f) => f.label === "Email")?.value ?? ABOUT.fields.find((f) => f.label === "Email")?.value;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -80,7 +91,7 @@ export default function RootLayout({
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
-        name: `${SITE.name} Portfolio`,
+        name: `${siteName} Portfolio`,
         description: SEO.description,
         publisher: { "@id": `${SITE_URL}/#person` },
         inLanguage: "en-IN",
@@ -88,11 +99,11 @@ export default function RootLayout({
       {
         "@type": "Person",
         "@id": `${SITE_URL}/#person`,
-        name: SITE.name,
+        name: siteName,
         url: SITE_URL,
-        jobTitle: ABOUT.designation,
+        jobTitle,
         description: SEO.description,
-        email: ABOUT.fields.find((f) => f.label === "Email")?.value,
+        email,
         knowsAbout: ["React", "React Native", "TypeScript", "Web Development", "Mobile Development"],
         sameAs: [],
       },

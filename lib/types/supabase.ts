@@ -1,4 +1,14 @@
-import type { ContactMessageInsert } from "./db";
+import type {
+  AboutRow,
+  AboutUpdate,
+  ContactMessageInsert,
+  ExpertiseRow,
+  ExpertiseUpdate,
+  HeroRow,
+  HeroUpdate,
+  SkillsRow,
+  SkillsUpdate,
+} from "./db";
 
 /** Row returned from contact_messages (with generated columns). */
 export type ContactMessageRow = ContactMessageInsert & {
@@ -7,8 +17,7 @@ export type ContactMessageRow = ContactMessageInsert & {
 };
 
 /**
- * Minimal Supabase Database type for contact_messages table.
- * Extend this if you add more tables or columns.
+ * Minimal Supabase Database type. Extend when adding tables.
  */
 export interface Database {
   public: {
@@ -17,6 +26,26 @@ export interface Database {
         Row: ContactMessageRow;
         Insert: ContactMessageInsert;
         Update: Partial<ContactMessageInsert>;
+      };
+      hero: {
+        Row: HeroRow;
+        Insert: HeroUpdate;
+        Update: Partial<HeroUpdate>;
+      };
+      about: {
+        Row: AboutRow;
+        Insert: AboutUpdate;
+        Update: Partial<AboutUpdate>;
+      };
+      skills: {
+        Row: SkillsRow;
+        Insert: SkillsUpdate;
+        Update: Partial<SkillsUpdate>;
+      };
+      expertise: {
+        Row: ExpertiseRow;
+        Insert: ExpertiseUpdate;
+        Update: Partial<ExpertiseUpdate>;
       };
     };
   };

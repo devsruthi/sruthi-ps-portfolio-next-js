@@ -7,3 +7,64 @@ export interface ContactMessageInsert {
   email: string;
   message: string;
 }
+
+/** Hero (basic details) row from Supabase. Single row per app. */
+export interface HeroRow {
+  id: string;
+  name: string;
+  intro: string;
+  created_at: string;
+  updated_at: string;
+}
+
+/** Fields required to create/update hero. */
+export type HeroUpdate = Pick<HeroRow, "name" | "intro">;
+
+/** One key-value row in the about section (e.g. Phone, Email). */
+export interface AboutInfoItem {
+  label: string;
+  value: string;
+}
+
+/** About section row from Supabase. Single row per app. */
+export interface AboutRow {
+  id: string;
+  designation: string;
+  bio: string;
+  fields: AboutInfoItem[];
+  created_at: string;
+  updated_at: string;
+}
+
+/** Payload to create/update about. */
+export type AboutUpdate = Pick<AboutRow, "designation" | "bio" | "fields">;
+
+/** One skill row (name + percentage 0–100). */
+export interface SkillItemRow {
+  name: string;
+  percentage: number;
+}
+
+/** Skills section row from Supabase. Single row per app. */
+export interface SkillsRow {
+  id: string;
+  title: string;
+  description: string;
+  items: SkillItemRow[];
+  created_at: string;
+  updated_at: string;
+}
+
+/** Payload to create/update skills. */
+export type SkillsUpdate = Pick<SkillsRow, "title" | "description" | "items">;
+
+/** Expertise section row from Supabase. Single row; items = array of strings. */
+export interface ExpertiseRow {
+  id: string;
+  items: string[];
+  created_at: string;
+  updated_at: string;
+}
+
+/** Payload to create/update expertise. */
+export type ExpertiseUpdate = Pick<ExpertiseRow, "items">;

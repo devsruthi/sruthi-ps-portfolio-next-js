@@ -8,7 +8,12 @@ function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
   document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
 }
 
-export function Header() {
+/** Site name from CMS (basic details). Falls back to SITE.name if not provided. */
+export function Header({ siteName }: { siteName?: string }) {
+  const name = siteName ?? SITE.name;
+  const initial = name.charAt(0);
+  const rest = name.slice(1);
+
   return (
     <header className="flex justify-center px-3 py-3">
       <div className="flex w-[60%] max-w-4xl items-center justify-between gap-2 opacity-70 max-[1100px]:w-[95%] max-[1100px]:gap-1">
@@ -17,9 +22,9 @@ export function Header() {
             className="text-[41px] max-[1100px]:text-[20px] max-[480px]:text-[16px]"
             style={{ color: THEME.COLORS.ACCENT }}
           >
-            {SITE.initial}
+            {initial}
           </span>
-          {SITE.name.slice(1)}
+          {rest}
         </div>
         <nav className="flex shrink-0 items-center justify-end gap-2 text-[16px] max-[1100px]:flex-nowrap max-[1100px]:gap-1 max-[1100px]:text-[11px] max-[480px]:gap-0.5 max-[480px]:text-[9px]">
           {NAV_ITEMS.map(({ label, href }) => (
