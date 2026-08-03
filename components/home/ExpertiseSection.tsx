@@ -1,5 +1,4 @@
-import { SectionTitle } from "@/components/ui/SectionTitle";
-import { EXPERTISE_LIST, SECTION_IDS, THEME } from "@/lib/constants";
+import { EXPERTISE_LIST, THEME } from "@/lib/constants";
 
 export type ExpertiseSectionProps = {
   /** List of expertise labels (e.g. Redux, Git). Shown as cards. */
@@ -12,17 +11,16 @@ export function ExpertiseSection({
   const list = items.filter((s) => s.trim());
 
   return (
-    <section
-      id={SECTION_IDS.EXPERTISE}
-      className="mx-auto my-[65px] w-[60%] text-center max-[1100px]:w-[90%]"
-    >
-      <SectionTitle label="EXPERTISE" />
-      <div className="grid grid-cols-3 gap-5 pb-12">
+    <section className="mx-auto w-full max-w-[1120px] px-5 py-20 text-center md:px-8">
+      <h2 className="font-display mb-10 text-3xl font-bold text-white">
+        Expertise
+      </h2>
+      <div className="grid grid-cols-2 gap-4 pb-12 sm:grid-cols-3 md:grid-cols-4">
         {list.map((item, index) => (
           <div
             key={`${item}-${index}`}
-            className="flex items-center justify-center rounded-lg px-5 py-5 text-[18px] transition-all duration-500 hover:scale-110 hover:bg-[#ffa500] hover:text-[#080707]"
-            style={{ backgroundColor: THEME.COLORS.CARD_BG }}
+            className="flex items-center justify-center rounded-xl px-5 py-5 text-[16px] transition-all duration-300 hover:scale-105 hover:bg-[#00d8ff] hover:text-[#0a0b10]"
+            style={{ backgroundColor: THEME.COLORS.SURFACE }}
           >
             {item}
           </div>

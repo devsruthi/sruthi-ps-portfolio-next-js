@@ -10,27 +10,26 @@ export const DEFAULT_OG_IMAGE = "/images/og.png";
 
 /** SEO metadata shared across the site. */
 export const SEO = {
-  defaultTitle: "Sruthi PS | Software Engineer & React Developer",
+  defaultTitle:
+    "Sruthi PS | Software Engineer — Internship & Working Student",
   titleTemplate: "%s | Sruthi PS",
   description:
-    "Sruthi P S — Software Engineer and web & mobile developer. React, React Native, TypeScript. Portfolio, skills, and contact. Based in Kerala, India.",
+    "Sruthi P S — Master's student in Computer Science at GISMA (Potsdam) and Software Engineer with 6+ years of experience. Seeking Working Student (Werkstudent) or Internship opportunities in Germany.",
   keywords: [
     "Sruthi PS",
     "Sruthi P S",
-    "Sruthi web developer",
-    "Sruthi React developer",
-    "Sruthi React Native developer",
-    "software engineer",
-    "web developer",
-    "mobile app developer",
-    "React developer",
+    "software engineer internship Germany",
+    "Werkstudent software engineer",
+    "working student React",
+    "React developer Potsdam",
+    "Next.js developer",
     "TypeScript developer",
-    "Kerala developer",
+    "GISMA Computer Science",
     "portfolio",
   ],
   openGraph: {
     type: "website" as const,
-    locale: "en_IN",
+    locale: "en_DE",
     siteName: "Sruthi PS Portfolio",
   },
   twitter: {

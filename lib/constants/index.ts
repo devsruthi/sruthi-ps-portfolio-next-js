@@ -13,10 +13,17 @@ export { TABLES } from "./db";
 export { NAV_ITEMS } from "./navigation";
 export {
   ABOUT,
+  EDUCATION,
   EXPERTISE_LIST,
   HERO,
+  PROJECT_CATEGORIES,
+  PROJECTS,
+  getProjectById,
+  SKILL_CARD_FALLBACK,
   SKILLS,
   SITE,
+  SOCIAL,
+  TECH_SKILLS,
 } from "./portfolio";
 export { SECTION_IDS } from "./section-ids";
 export { DEFAULT_OG_IMAGE, SEO, SITE_URL } from "./site";

@@ -1,12 +1,19 @@
 export type {
   About,
   AboutField,
+  CareerHighlight,
   ContactFormData,
+  EducationItem,
   ExpertiseList,
   Hero,
+  Project,
+  ProjectCategory,
+  SkillCard,
   SkillItem,
   Skills,
   Site,
+  SocialLinks,
+  TechSkill,
 } from "./portfolio";
 export type {
   GetContactMessagesParams,

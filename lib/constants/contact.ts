@@ -7,29 +7,29 @@ export const CONTACT_LIMITS = {
 
 /** Form labels and button/success copy. */
 export const CONTACT_FORM_LABELS = {
-  name: "Name",
-  email: "Email",
-  message: "Message",
-  submit: "Send message",
+  name: "Your Name",
+  email: "Your Email",
+  message: "Your message",
+  submit: "Send Message",
   sending: "Sending…",
   success: "Thanks! Your message was sent.",
 } as const;
 
 /** Placeholders for contact inputs. */
 export const CONTACT_PLACEHOLDERS = {
-  name: "Your name",
-  email: "you@example.com",
-  message: "Your message…",
+  name: "Your Name",
+  email: "Your Email",
+  message: "Your message",
 } as const;
 
 /** Tailwind class names for contact form UI. */
 export const CONTACT_FORM_CLASSES = {
   input:
-    "w-full rounded-lg border border-white/20 bg-black/50 px-4 py-3 text-white placeholder-white/40 focus:border-[#ffa500] focus:outline-none focus:ring-1 focus:ring-[#ffa500]",
-  label: "mb-1 block text-sm font-medium text-white/80",
-  textarea: "resize-y min-h-[120px]",
+    "w-full rounded-xl border border-white/10 bg-[#12141c] px-5 py-3.5 text-white placeholder-white/35 transition focus:border-[#00d8ff] focus:outline-none focus:ring-1 focus:ring-[#00d8ff]/40",
+  label: "sr-only",
+  textarea: "resize-y min-h-[140px]",
   submitButton:
-    "rounded-[25px] px-6 py-3 text-[15px] font-medium text-black transition opacity-100 hover:opacity-90 disabled:opacity-60",
+    "w-full rounded-full bg-[#00d8ff] px-8 py-3.5 text-[15px] font-semibold text-[#0a0b10] transition hover:brightness-110 disabled:opacity-60",
 } as const;
 
 /** Validation error messages returned to the user. */
