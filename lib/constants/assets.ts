@@ -2,7 +2,7 @@
 export const ASSET_PATHS = {
   WAVE_SVG: "/assets/wave.svg",
   PORTRAIT_DUMMY: "/images/portrait-dummy.jpg",
-  ABOUT_PORTRAIT: "/images/profile/about-portrait.png",
+  ABOUT_PORTRAIT: "/images/profile/about-portrait-studio.png",
 } as const;
 
 /** Layout/dimension constants for consistent UI. */

@@ -55,10 +55,6 @@ export function Hero({
             {intro}
           </p>
 
-          <p className="animate-fade-up-delay-2 mt-4 text-sm text-white/40">
-            Computer Science · Potsdam · 6+ years building products
-          </p>
-
           <div className="animate-fade-up-delay-3 mt-9 flex flex-wrap items-center gap-4">
             <Link
               href={`#${SECTION_IDS.PROJECTS}`}

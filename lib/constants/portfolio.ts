@@ -27,7 +27,7 @@ export const HERO: Hero = {
   title: "Master's Student",
   name: "Sruthi P S",
   intro:
-    "Building web and mobile products while pursuing an M.Eng. in Computer Science in Potsdam — looking for a Werkstudent or internship role in Germany.",
+    "I build web and mobile products with clean UI and solid engineering — currently pursuing an M.Eng. in Computer Science in Potsdam.",
   stack: [
     "React",
     "Next.js",
@@ -42,9 +42,9 @@ export const HERO: Hero = {
 export const ABOUT: About = {
   designation: "Software Engineer",
   tagline: "Master's Student · Software Engineer · 6+ Years of Experience",
-  bio: "Master's student in Computer Science at GISMA University of Applied Sciences, Potsdam, with 6+ years of experience building scalable web and mobile apps. I work with React, Next.js, TypeScript, and React Native — focused on performance, maintainability, and clean UI.",
+  bio: "I care about performance, maintainability, and thoughtful UI. Day to day I work with React, Next.js, TypeScript, and React Native — turning product ideas into reliable apps people enjoy using.",
   lookingFor:
-    "Working Student (Werkstudent) or Software Engineering Internship in Germany. English fluent · German A2.",
+    "English fluent · German A2",
   fields: [
     { label: "Phone", value: "+49 15511048943" },
     { label: "Email", value: "sruthips395@gmail.com" },

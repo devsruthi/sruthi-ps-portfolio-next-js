@@ -22,16 +22,13 @@ export type AboutSectionProps = {
 
 export function AboutSection({
   siteName,
-  designation = ABOUT.designation,
   bio = ABOUT.bio,
   fields = [],
-  locationLabel = "Potsdam, Germany",
 }: AboutSectionProps) {
   const alt = siteName ?? SITE.name;
   const imageSrc = ASSET_PATHS.ABOUT_PORTRAIT;
   const email =
     fields.find((f) => /email/i.test(f.label))?.value ?? SOCIAL.email;
-  const phone = fields.find((f) => /phone/i.test(f.label))?.value;
 
   return (
     <section
@@ -54,12 +51,8 @@ export function AboutSection({
                 About me
               </p>
               <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-[2.5rem] md:leading-tight">
-                {alt}
+                How I work
               </h2>
-              <p className="mt-2 text-lg text-white/55">
-                Master&apos;s Student{" "}
-                <span className="text-[#f5b942]">·</span> Software Engineer
-              </p>
             </ScrollReveal>
 
             {bio ? (
@@ -99,14 +92,7 @@ export function AboutSection({
             </ScrollReveal>
 
             <ScrollReveal variant="up" delay={200} className="mt-2">
-              <div className="rounded-2xl border border-[#f5b942]/25 bg-[#f5b942]/[0.07] px-5 py-4">
-                <p className="text-xs font-semibold tracking-[0.16em] text-[#f5b942] uppercase">
-                  Looking for
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
-                  {ABOUT.lookingFor}
-                </p>
-              </div>
+              <p className="text-sm text-white/45">{ABOUT.lookingFor}</p>
             </ScrollReveal>
 
             <ScrollReveal variant="fade" delay={280}>
@@ -133,18 +119,7 @@ export function AboutSection({
                 >
                   Email
                 </a>
-                {phone ? (
-                  <a
-                    href={`tel:${phone.replace(/\s/g, "")}`}
-                    className="rounded-full border border-white/15 px-4 py-2 text-white/75 transition hover:border-[#00d8ff]/50 hover:text-[#00d8ff]"
-                  >
-                    Call
-                  </a>
-                ) : null}
               </div>
-              <p className="mt-5 text-xs text-white/35">
-                Based in {locationLabel} · {designation} · English · German A2
-              </p>
             </ScrollReveal>
           </div>
 
@@ -154,36 +129,78 @@ export function AboutSection({
             className="relative mx-auto w-full max-w-md lg:max-w-none"
           >
             <div
-              className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_30%_20%,rgba(0,216,255,0.22),transparent_55%),radial-gradient(circle_at_80%_80%,rgba(245,185,66,0.16),transparent_50%)] blur-2xl"
+              className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_40%,rgba(0,216,255,0.3),transparent_60%),radial-gradient(circle_at_70%_75%,rgba(245,185,66,0.16),transparent_55%)] blur-3xl animate-glow"
               aria-hidden
             />
 
-            <div className="relative">
-              <div className="absolute -top-3 -right-3 hidden h-24 w-24 rounded-tr-3xl border-t border-r border-[#00d8ff]/40 md:block" aria-hidden />
-              <div className="absolute -bottom-3 -left-3 hidden h-24 w-24 rounded-bl-3xl border-b border-l border-[#f5b942]/35 md:block" aria-hidden />
-
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#12141c] shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
-                <Image
-                  src={imageSrc}
-                  alt={`${alt} — portrait`}
-                  width={1024}
-                  height={1536}
-                  className="aspect-[4/5] h-auto w-full object-cover object-[center_20%]"
-                  priority
-                />
+            <div className="group relative mx-auto flex w-full max-w-[380px] flex-col items-center">
+              <div className="relative aspect-[4/5] w-full">
+                {/* Back plate — soft diamond tilt */}
                 <div
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#0a0b10] via-[#0a0b10]/40 to-transparent"
+                  className="pointer-events-none absolute inset-[10%] rotate-6 rounded-[40%] border border-[#f5b942]/25 bg-[#f5b942]/5"
                   aria-hidden
                 />
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <p className="font-display text-lg font-semibold text-white">
-                    {alt}
-                  </p>
-                  <p className="mt-0.5 text-sm text-white/65">
-                    M.Eng. CS · GISMA · Potsdam
-                  </p>
+
+                {/* Orbit rings */}
+                <div
+                  className="animate-orbit pointer-events-none absolute inset-[-6%] rounded-full border border-dashed border-[#00d8ff]/30"
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute inset-[2%] rounded-full border border-white/10"
+                  aria-hidden
+                />
+                <div
+                  className="animate-border-shimmer pointer-events-none absolute inset-[6%] rounded-full bg-[conic-gradient(from_120deg,rgba(0,216,255,0.55),transparent_40%,rgba(245,185,66,0.45),transparent_75%,rgba(0,216,255,0.55))] opacity-70 blur-[0.5px]"
+                  style={{
+                    WebkitMaskImage:
+                      "radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px))",
+                    maskImage:
+                      "radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px))",
+                  }}
+                  aria-hidden
+                />
+
+                {/* Organic portrait shape */}
+                <div
+                  className="absolute inset-[9%] overflow-hidden bg-[#12141c] shadow-[0_30px_80px_rgba(0,0,0,0.55)] ring-1 ring-[#00d8ff]/35 transition duration-500 group-hover:ring-[#00d8ff]/60 group-hover:shadow-[0_35px_90px_rgba(0,216,255,0.18)]"
+                  style={{
+                    borderRadius: "58% 42% 48% 52% / 48% 42% 58% 52%",
+                  }}
+                >
+                  <Image
+                    src={imageSrc}
+                    alt={`${alt} — portrait`}
+                    width={1024}
+                    height={1536}
+                    className="animate-portrait-ken h-full w-full object-cover object-[center_15%] transition duration-700 group-hover:scale-110"
+                    priority
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0b10]/70 via-transparent to-white/5"
+                    aria-hidden
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 transition duration-700 group-hover:opacity-100"
+                    aria-hidden
+                  />
                 </div>
+
+                {/* Accent dots on orbit */}
+                <span
+                  className="animate-float absolute top-[12%] right-[8%] size-2.5 rounded-full bg-[#00d8ff] shadow-[0_0_12px_rgba(0,216,255,0.8)]"
+                  aria-hidden
+                />
+                <span
+                  className="absolute bottom-[18%] left-[6%] size-2 rounded-full bg-[#f5b942] shadow-[0_0_10px_rgba(245,185,66,0.7)]"
+                  style={{ animation: "float-soft 7s ease-in-out 0.6s infinite" }}
+                  aria-hidden
+                />
               </div>
+
+              <p className="font-display mt-6 text-center text-xl font-semibold text-white">
+                {alt}
+              </p>
             </div>
           </ScrollReveal>
         </div>

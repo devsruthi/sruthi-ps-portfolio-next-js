@@ -88,6 +88,44 @@ body {
   animation: pulse-glow 4s ease-in-out infinite;
 }
 
+@keyframes portrait-ken {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes border-shimmer {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.animate-portrait-ken {
+  animation: portrait-ken 14s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbit-spin 22s linear infinite;
+}
+
+.animate-border-shimmer {
+  animation: border-shimmer 3.5s ease-in-out infinite;
+}
+
 /* Scroll-triggered content reveals (ScrollReveal) */
 .reveal {
   opacity: 0;
@@ -193,7 +231,10 @@ body {
   .animate-fade-up-delay-3,
   .animate-float,
   .animate-glow,
-  .animate-ping {
+  .animate-ping,
+  .animate-portrait-ken,
+  .animate-orbit,
+  .animate-border-shimmer {
     animation: none;
   }
 

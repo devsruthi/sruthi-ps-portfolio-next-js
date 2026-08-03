@@ -1,24 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import {
-  PROJECT_CATEGORIES,
-  PROJECTS,
-  SECTION_IDS,
-} from "@/lib/constants";
-import type { Project, ProjectCategory } from "@/lib/types";
+import { PROJECTS, SECTION_IDS } from "@/lib/constants";
+import type { Project } from "@/lib/types";
 
 export function ProjectsSection() {
-  const [active, setActive] = useState<ProjectCategory | "All">("All");
-
-  const filtered =
-    active === "All"
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.category === active);
-
   return (
     <section
       id={SECTION_IDS.PROJECTS}
@@ -39,41 +25,15 @@ export function ProjectsSection() {
         </p>
       </ScrollReveal>
 
-      <ScrollReveal
-        variant="fade"
-        delay={80}
-        className="relative mb-12 flex flex-wrap items-center justify-center gap-2.5"
-      >
-        <FilterPill
-          label="All"
-          active={active === "All"}
-          onClick={() => setActive("All")}
-        />
-        {PROJECT_CATEGORIES.map((category) => (
-          <FilterPill
-            key={category}
-            label={category}
-            active={active === category}
-            onClick={() => setActive(category)}
-          />
-        ))}
-      </ScrollReveal>
-
       <div className="relative grid gap-8 md:grid-cols-2">
-        {filtered.map((project, index) => (
+        {PROJECTS.map((project, index) => (
           <ProjectCard
-            key={`${active}-${project.id}`}
+            key={project.id}
             project={project}
             index={index}
           />
         ))}
       </div>
-
-      {filtered.length === 0 ? (
-        <p className="py-12 text-center text-white/40">
-          No projects in this category yet.
-        </p>
-      ) : null}
     </section>
   );
 }
@@ -172,29 +132,5 @@ function ProjectCard({
         </div>
       </div>
     </ScrollReveal>
-  );
-}
-
-function FilterPill({
-  label,
-  active,
-  onClick,
-}: {
-  label: string;
-  active: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`rounded-full px-5 py-2.5 text-sm font-medium transition ${
-        active
-          ? "bg-[#00d8ff] text-[#0a0b10] shadow-[0_8px_24px_rgba(0,216,255,0.25)]"
-          : "border border-white/15 text-white/70 hover:border-white/30 hover:text-white"
-      }`}
-    >
-      {label}
-    </button>
   );
 }
