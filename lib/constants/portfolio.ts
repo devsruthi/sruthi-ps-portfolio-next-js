@@ -42,9 +42,9 @@ export const HERO: Hero = {
 export const ABOUT: About = {
   designation: "Software Engineer",
   tagline: "Master's Student · Software Engineer · 6+ Years of Experience",
-  bio: "I'm a Master's student in Computer Science at GISMA University of Applied Sciences, Potsdam, Germany, with 6+ years of professional experience building scalable web and mobile applications. I enjoy developing modern, user-friendly applications using React.js, Next.js, TypeScript, and React Native, with a strong focus on performance, maintainability, and clean code. I'm currently seeking a Working Student (Werkstudent) or Internship opportunity where I can contribute my industry experience while continuing to grow as a software engineer.",
+  bio: "Master's student in Computer Science at GISMA University of Applied Sciences, Potsdam, with 6+ years of experience building scalable web and mobile apps. I work with React, Next.js, TypeScript, and React Native — focused on performance, maintainability, and clean UI.",
   lookingFor:
-    "I'm currently seeking Working Student (Werkstudent) or Software Engineering Internship opportunities in Germany. Available to work part-time during the academic semester and full-time during semester breaks. Fluent in English and currently learning German (A2).",
+    "Working Student (Werkstudent) or Software Engineering Internship in Germany. English fluent · German A2.",
   fields: [
     { label: "Phone", value: "+49 15511048943" },
     { label: "Email", value: "sruthips395@gmail.com" },
