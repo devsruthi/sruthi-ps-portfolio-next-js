@@ -1,8 +1,9 @@
 /** Section IDs used for anchor links and section elements. Single source of truth. */
 export const SECTION_IDS = {
+  HOME: "home",
   ABOUT: "about_me",
   SKILLS: "skills",
-  EXPERTISE: "expertise",
+  PROJECTS: "projects",
   CONTACT: "contact",
 } as const;
 

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto } from "next/font/google";
+import { Outfit, Syne } from "next/font/google";
 import {
   ABOUT,
   DEFAULT_OG_IMAGE,
@@ -7,19 +7,23 @@ import {
   SITE,
   SITE_URL,
 } from "@/lib/constants";
-import { getHero, getAbout } from "@/lib/services/portfolio-content";
+import { getHero } from "@/lib/services/portfolio-content";
 import "./globals.css";
 
-const roboto = Roboto({
-  weight: ["400", "500", "700"],
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-roboto",
+  variable: "--font-outfit",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
 });
 
 const ogImageUrl = `${SITE_URL}${DEFAULT_OG_IMAGE}`;
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#0a0b10",
   width: "device-width",
   initialScale: 1,
 };
@@ -79,10 +83,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [hero, about] = await Promise.all([getHero(), getAbout()]);
+  const hero = await getHero();
   const siteName = hero?.name ?? SITE.name;
-  const jobTitle = about?.designation ?? ABOUT.designation;
-  const email = about?.fields?.find((f) => f.label === "Email")?.value ?? ABOUT.fields.find((f) => f.label === "Email")?.value;
+  const jobTitle = ABOUT.designation;
+  const email = ABOUT.fields.find((f) => f.label === "Email")?.value;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -104,21 +108,40 @@ export default async function RootLayout({
         jobTitle,
         description: SEO.description,
         email,
-        knowsAbout: ["React", "React Native", "TypeScript", "Web Development", "Mobile Development"],
-        sameAs: [],
+        knowsAbout: [
+          "Software Engineering",
+          "React",
+          "Next.js",
+          "React Native",
+          "JavaScript",
+          "TypeScript",
+          "HTML",
+          "CSS",
+          "SASS",
+          "Redux",
+        ],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Potsdam",
+          addressCountry: "DE",
+        },
+        sameAs: [
+          "https://github.com/devsruthi",
+          "https://www.linkedin.com/in/dev-sruthi-ps/",
+        ],
       },
     ],
   };
 
   return (
-    <html lang="en" className={roboto.variable}>
+    <html lang="en" className={`${outfit.variable} ${syne.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-black font-sans text-[aliceblue] antialiased">
+      <body className="min-h-screen font-sans text-[#f4f6fb] antialiased">
         {children}
       </body>
     </html>

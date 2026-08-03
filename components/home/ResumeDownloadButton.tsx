@@ -2,11 +2,20 @@
 
 import { useState } from "react";
 import { getPresignedResumeUrl } from "@/app/actions/resume";
-import { THEME } from "@/lib/constants";
 
 const DOWNLOAD_FILENAME = "sruthi-resume.pdf";
 
-export function ResumeDownloadButton() {
+type ResumeDownloadButtonProps = {
+  variant?: "solid" | "link";
+  label?: string;
+  className?: string;
+};
+
+export function ResumeDownloadButton({
+  variant = "solid",
+  label = "Download CV",
+  className = "",
+}: ResumeDownloadButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -32,14 +41,18 @@ export function ResumeDownloadButton() {
     }
   }
 
+  const baseSolid =
+    "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#00d8ff] px-7 py-2.5 text-[15px] font-semibold text-[#0a0b10] transition hover:brightness-110 disabled:opacity-70";
+  const baseLink =
+    "inline-flex min-h-[44px] items-center justify-center text-[15px] font-medium text-[#00d8ff] underline decoration-[#00d8ff]/50 underline-offset-4 transition hover:decoration-[#00d8ff] disabled:opacity-70";
+
   return (
-    <div className="mt-[18px] flex flex-col gap-2">
+    <div className={`flex flex-col gap-2 ${className}`}>
       <button
         type="button"
         onClick={handleClick}
         disabled={loading}
-        className="inline-flex min-h-[44px] items-center justify-center gap-2 self-start rounded-[25px] px-6 py-2.5 text-[15px] text-black shadow-[1px_1px_2px_white] no-underline transition hover:opacity-90 disabled:opacity-80 disabled:pointer-events-none"
-        style={{ backgroundColor: THEME.COLORS.ACCENT }}
+        className={variant === "solid" ? baseSolid : baseLink}
       >
         {loading ? (
           <>
@@ -67,7 +80,7 @@ export function ResumeDownloadButton() {
             <span>Preparing…</span>
           </>
         ) : (
-          "My Resume"
+          label
         )}
       </button>
       {error && (

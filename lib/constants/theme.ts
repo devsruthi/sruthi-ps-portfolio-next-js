@@ -1,11 +1,14 @@
 /** Visual theme values used in components (avoid magic strings in TSX). */
 export const THEME = {
-  HERO_TITLE_SHADOW:
-    "1px 1px 2px black, 0 0 3px lightgreen, 0 0 5px darkblue",
   COLORS: {
-    ACCENT: "#ffa500",
-    CARD_BG: "#0D0D0D",
-    CARD_BORDER: "#0D0D0D",
-    SHADOW: "#080707",
+    ACCENT: "#00d8ff",
+    ACCENT_SOFT: "rgba(0, 216, 255, 0.15)",
+    BG: "#0a0b10",
+    BG_ELEVATED: "#12141c",
+    SURFACE: "#161922",
+    BORDER: "rgba(255, 255, 255, 0.1)",
+    TEXT: "#f4f6fb",
+    TEXT_MUTED: "rgba(244, 246, 251, 0.65)",
+    TEXT_DIM: "rgba(244, 246, 251, 0.4)",
   },
 } as const;

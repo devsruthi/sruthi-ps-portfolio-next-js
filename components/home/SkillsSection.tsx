@@ -1,74 +1,54 @@
-import { SectionTitle } from "@/components/ui/SectionTitle";
-import { SECTION_IDS, SKILLS, THEME } from "@/lib/constants";
+import { TechIcon } from "@/components/home/TechIcon";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SECTION_IDS, SKILLS, TECH_SKILLS } from "@/lib/constants";
 import type { SkillItemRow } from "@/lib/types/db";
 
 export type SkillsSectionProps = {
-  /** Section heading (e.g. "Technical skills I use..."). */
   title?: string;
-  /** Paragraph below the heading. */
   description?: string;
-  /** Skill name + percentage (0–100) for the progress bars. */
   items?: SkillItemRow[];
 };
 
 export function SkillsSection({
   title = SKILLS.description,
   description = SKILLS.summary,
-  items = [...SKILLS.items],
 }: SkillsSectionProps) {
-  const list = items.filter((i) => i.name.trim());
-  const percentage = (n: number) => Math.max(0, Math.min(100, Number(n) || 0));
-
   return (
     <section
       id={SECTION_IDS.SKILLS}
-      className="mx-auto my-[65px] w-[60%] text-center max-[1100px]:w-[90%]"
+      className="mx-auto w-full max-w-[1120px] px-5 py-20 md:px-8 md:py-28"
     >
-      <SectionTitle label="SKILLS" />
-      <div className="flex w-full gap-20 max-[1450px]:flex-col">
-        <div className="flex-1">
-          {title ? (
-            <p className="text-left text-[28px]">{title}</p>
-          ) : null}
-          {description ? (
-            <p className="mt-4 text-justify leading-7 opacity-50">{description}</p>
-          ) : null}
-        </div>
-        <div
-          className="flex flex-1 flex-col gap-10 rounded border-4 p-[65px] transition-transform duration-300 hover:scale-105"
-          style={{
-            backgroundColor: "black",
-            borderColor: THEME.COLORS.CARD_BORDER,
-            boxShadow: `2px 10px 20px 5px ${THEME.COLORS.SHADOW}`,
-          }}
-        >
-          {list.map(({ name, percentage: pct }, index) => {
-            const p = percentage(pct);
-            return (
-              <div
-                key={`${name}-${index}`}
-                className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105"
-              >
-                <div className="flex justify-between text-[18px]">
-                  <span className="text-white">{name}</span>
-                  <span style={{ color: THEME.COLORS.ACCENT }}>{p}%</span>
-                </div>
-                <div
-                  className="flex h-[5px] items-center overflow-hidden rounded-sm"
-                  style={{ backgroundColor: THEME.COLORS.CARD_BG }}
-                >
-                  <div
-                    className="h-[6px] rounded-sm transition-[width] duration-300"
-                    style={{
-                      width: `${p}%`,
-                      backgroundColor: THEME.COLORS.ACCENT,
-                    }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
+      <ScrollReveal variant="up" className="mb-12 max-w-2xl">
+        <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
+          My <span className="text-[#00d8ff]">{"{skills}"}</span>
+        </h2>
+        <p className="mt-2 text-sm text-white/40">{title}</p>
+        {description ? (
+          <p className="mt-4 text-base leading-relaxed text-white/55">
+            {description}
+          </p>
+        ) : null}
+      </ScrollReveal>
+
+      <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        {TECH_SKILLS.map((skill, index) => (
+          <ScrollReveal
+            key={skill.name}
+            variant="up"
+            delay={index * 90}
+            className="group flex gap-4"
+          >
+            <div className="shrink-0 transition duration-300 group-hover:scale-110">
+              <TechIcon icon={skill.icon} />
+            </div>
+            <div>
+              <h3 className="font-semibold text-white">{skill.name}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-white/45">
+                {skill.description}
+              </p>
+            </div>
+          </ScrollReveal>
+        ))}
       </div>
     </section>
   );
