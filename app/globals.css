@@ -192,7 +192,8 @@ body {
   .animate-fade-up-delay-2,
   .animate-fade-up-delay-3,
   .animate-float,
-  .animate-glow {
+  .animate-glow,
+  .animate-ping {
     animation: none;
   }
 

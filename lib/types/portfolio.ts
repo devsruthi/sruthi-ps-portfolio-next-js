@@ -67,18 +67,39 @@ export type ExpertiseList = readonly string[];
 
 export type ProjectCategory = "Apps" | "Websites" | "Mobile";
 
+export interface ProjectFeature {
+  readonly title: string;
+  readonly description?: string;
+}
+
+export interface ProjectFlow {
+  readonly title: string;
+  readonly subtitle: string;
+  readonly description: string;
+  readonly highlights: readonly string[];
+  readonly images: readonly string[];
+}
+
 export interface Project {
   readonly id: string;
   readonly title: string;
   readonly description: string;
   /** Short blurb shown on the portfolio projects grid card. */
   readonly cardDescription?: string;
+  /** Optional tagline under the project title on the detail page. */
+  readonly tagline?: string;
   readonly stack: readonly string[];
   readonly category: ProjectCategory;
-  /** Image on the project detail page. */
+  /** Primary image on the project detail page. */
   readonly image: string;
+  /** Optional gallery images shown on the project detail page. */
+  readonly gallery?: readonly string[];
   /** Optional override image for the projects grid card. */
   readonly cardImage?: string;
+  /** Feature highlights for the project detail page. */
+  readonly features?: readonly ProjectFeature[];
+  /** Customer / seller (or similar) flow sections. */
+  readonly flows?: readonly ProjectFlow[];
   /** Public website / demo URL shown on the project detail page. */
   readonly websiteUrl?: string;
   readonly githubUrl?: string;

@@ -11,7 +11,7 @@ export const DEFAULT_OG_IMAGE = "/images/og.png";
 /** SEO metadata shared across the site. */
 export const SEO = {
   defaultTitle:
-    "Sruthi PS | Software Engineer — Internship & Working Student",
+    "Sruthi PS | Master's Student & Software Engineer — Internship & Working Student",
   titleTemplate: "%s | Sruthi PS",
   description:
     "Sruthi P S — Master's student in Computer Science at GISMA (Potsdam) and Software Engineer with 6+ years of experience. Seeking Working Student (Werkstudent) or Internship opportunities in Germany.",

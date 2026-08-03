@@ -8,6 +8,8 @@ export type {
   Hero,
   Project,
   ProjectCategory,
+  ProjectFeature,
+  ProjectFlow,
   SkillCard,
   SkillItem,
   Skills,
