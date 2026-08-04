@@ -88,6 +88,108 @@ body {
   animation: pulse-glow 4s ease-in-out infinite;
 }
 
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes hero-visual-in {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes orbit-spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-hero-text {
+  animation: slide-in-left 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-hero-text-1 {
+  animation: slide-in-left 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.animate-hero-text-2 {
+  animation: slide-in-left 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both;
+}
+
+.animate-hero-text-3 {
+  animation: slide-in-left 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both;
+}
+
+.animate-hero-text-4 {
+  animation: slide-in-left 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.46s both;
+}
+
+.animate-hero-text-5 {
+  animation: slide-in-left 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.58s both;
+}
+
+.animate-hero-visual {
+  animation: hero-visual-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.15s both;
+}
+
+.animate-orbit-slow {
+  animation: orbit-spin 36s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-spin-reverse 48s linear infinite;
+}
+
+@keyframes portrait-ken {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes border-shimmer {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.animate-portrait-ken {
+  animation: portrait-ken 14s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbit-spin 22s linear infinite;
+}
+
+.animate-border-shimmer {
+  animation: border-shimmer 3.5s ease-in-out infinite;
+}
+
 /* Scroll-triggered content reveals (ScrollReveal) */
 .reveal {
   opacity: 0;
@@ -191,8 +293,21 @@ body {
   .animate-fade-up-delay-1,
   .animate-fade-up-delay-2,
   .animate-fade-up-delay-3,
+  .animate-hero-text,
+  .animate-hero-text-1,
+  .animate-hero-text-2,
+  .animate-hero-text-3,
+  .animate-hero-text-4,
+  .animate-hero-text-5,
+  .animate-hero-visual,
   .animate-float,
-  .animate-glow {
+  .animate-glow,
+  .animate-ping,
+  .animate-portrait-ken,
+  .animate-orbit,
+  .animate-orbit-slow,
+  .animate-orbit-reverse,
+  .animate-border-shimmer {
     animation: none;
   }
 

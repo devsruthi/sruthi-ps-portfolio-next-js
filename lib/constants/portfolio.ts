@@ -24,10 +24,10 @@ export const SOCIAL: SocialLinks = {
 };
 
 export const HERO: Hero = {
-  title: "Software Engineer",
+  title: "Master's Student",
   name: "Sruthi P S",
   intro:
-    "Master's student in Computer Science at GISMA University of Applied Sciences, Potsdam, and Software Engineer with 6+ years of professional experience building scalable web and mobile applications. Currently seeking a Working Student (Werkstudent) or Internship opportunity in Germany.",
+    "I build web and mobile products with clean UI and solid engineering — currently pursuing an M.Eng. in Computer Science in Potsdam.",
   stack: [
     "React",
     "Next.js",
@@ -41,10 +41,10 @@ export const HERO: Hero = {
 
 export const ABOUT: About = {
   designation: "Software Engineer",
-  tagline: "Software Engineer · Master's Student with 6+ Years of Experience",
-  bio: "I'm a Master's student in Computer Science at GISMA University of Applied Sciences, Potsdam, Germany, with 6+ years of professional experience building scalable web and mobile applications. I enjoy developing modern, user-friendly applications using React.js, Next.js, TypeScript, and React Native, with a strong focus on performance, maintainability, and clean code. I'm currently seeking a Working Student (Werkstudent) or Internship opportunity where I can contribute my industry experience while continuing to grow as a software engineer.",
+  tagline: "Master's Student · Software Engineer · 6+ Years of Experience",
+  bio: "I care about performance, maintainability, and thoughtful UI. Day to day I work with React, Next.js, TypeScript, and React Native — turning product ideas into reliable apps people enjoy using.",
   lookingFor:
-    "I'm currently seeking Working Student (Werkstudent) or Software Engineering Internship opportunities in Germany. Available to work part-time during the academic semester and full-time during semester breaks. Fluent in English and currently learning German (A2).",
+    "English fluent · German A2",
   fields: [
     { label: "Phone", value: "+49 15511048943" },
     { label: "Email", value: "sruthips395@gmail.com" },
@@ -160,6 +160,84 @@ export const PROJECT_CATEGORIES: readonly ProjectCategory[] = [
 
 export const PROJECTS: readonly Project[] = [
   {
+    id: "novera",
+    title: "Novera - MarketPlace platform",
+    tagline: "Dual-Role Marketplace Platform",
+    description:
+      "Built a dual-role marketplace where customers browse curated products from independent stores while merchants manage inventory, products, orders, and storefronts through secure role-based dashboards.",
+    cardDescription:
+      "Dual-role marketplace — customers shop curated products, merchants manage inventory, orders, and storefronts.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Row Level Security",
+      "Tailwind CSS",
+    ],
+    category: "Apps",
+    websiteUrl: "https://novera-commerce-platform.vercel.app/",
+    image: "/images/projects/novera/novera-laptop.png",
+    cardImage: "/images/projects/novera/novera-laptop.png",
+    gallery: [
+      "/images/projects/novera/novera-laptop.png",
+      "/images/projects/novera/hq-home.png",
+      "/images/projects/novera/hq-shop.png",
+      "/images/projects/novera/hq-dashboard.png",
+      "/images/projects/novera/hq-products.png",
+      "/images/projects/novera/hq-signup.png",
+    ],
+    flows: [
+      {
+        title: "Customer flow",
+        subtitle: "Shop & discover",
+        description:
+          "Customers join Novera to browse curated fashion, explore collections, and complete a smooth shopping journey from discovery to order tracking.",
+        highlights: [
+          "Browse home and curated product collections",
+          "Shop with filters, categories, wishlist, and cart",
+          "Track orders and manage a signed-in shopping profile",
+          "Create a customer account to start shopping quickly",
+        ],
+        images: [
+          "/images/projects/novera/novera-laptop.png",
+          "/images/projects/novera/hq-home.png",
+          "/images/projects/novera/hq-shop.png",
+          "/images/projects/novera/hq-signup.png",
+        ],
+      },
+      {
+        title: "Seller flow",
+        subtitle: "Sell & manage",
+        description:
+          "Shop owners use a dedicated dashboard to run their store — from inventory and product management to sales performance and category organization.",
+        highlights: [
+          "Overview dashboard with inventory and sales insights",
+          "Manage products, pricing, stock, and status",
+          "Organize shoppable categories for the storefront",
+          "Create a seller account to open and grow a shop",
+        ],
+        images: [
+          "/images/projects/novera/hq-dashboard.png",
+          "/images/projects/novera/hq-products.png",
+          "/images/projects/novera/hq-seller-signup.png",
+        ],
+      },
+    ],
+    features: [
+      { title: "🛒 Multi-Vendor Marketplace" },
+      { title: "🔐 Authentication & Role-Based Access Control" },
+      { title: "🛡️ Supabase Row Level Security" },
+      { title: "📦 Product & Inventory Management" },
+      { title: "❤️ Wishlist & Shopping Cart" },
+      { title: "📑 Order Management" },
+      { title: "🏪 Merchant Dashboard" },
+      { title: "📱 Fully Responsive Design" },
+      { title: "⚡ Optimized Performance" },
+      { title: "🔍 Search & Product Filtering" },
+    ],
+  },
+  {
     id: "kerala-library",
     title: "Digital Library",
     description:
@@ -171,17 +249,6 @@ export const PROJECTS: readonly Project[] = [
     image: "/images/projects/kerala-library-dashboard.png",
     cardImage: "/images/projects/kerala-library-laptop.png",
     websiteUrl: "https://www.keralalibrary.in/",
-    githubUrl: "https://github.com/devsruthi",
-  },
-  {
-    id: "nova-commerce",
-    title: "Nova Commerce",
-    description:
-      "A Next.js storefront with product discovery and responsive checkout — focused on conversion-friendly UI and reusable components.",
-    stack: ["Next.js", "React", "JavaScript", "SASS"],
-    category: "Websites",
-    image: "/images/projects/project-2.jpg",
-    websiteUrl: "https://github.com/devsruthi",
     githubUrl: "https://github.com/devsruthi",
   },
   {
