@@ -87,6 +87,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </span>
               ))}
             </div>
+            {project.websiteUrl ? (
+              <a
+                href={project.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex min-h-[42px] items-center justify-center rounded-full bg-[#00d8ff] px-5 py-2 text-sm font-semibold text-[#0a0b10] transition hover:brightness-110"
+              >
+                Visit website →
+              </a>
+            ) : null}
           </ScrollReveal>
 
           <ScrollReveal variant="up" delay={120} className="mt-10">
@@ -116,7 +126,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <span className="rounded-full border border-[#00d8ff]/35 bg-[#00d8ff]/10 px-3 py-1 text-xs font-semibold tracking-wide text-[#00d8ff] uppercase">
                       {flow.subtitle}
                     </span>
-                    <h3 className="font-display text-2xl font-bold text-white">
+                    <h3 className="font-display text-2xl font-bold text-[#f5b942]">
                       {flow.title}
                     </h3>
                   </div>
@@ -175,37 +185,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </ScrollReveal>
           ) : null}
 
-          {project.websiteUrl ? (
-            <ScrollReveal variant="up" delay={240} className="mt-12">
-              <h2 className="font-display text-lg font-semibold text-white">
-                Website
-              </h2>
-              <a
-                href={project.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex text-base text-[#00d8ff] underline decoration-[#00d8ff]/40 underline-offset-4 transition hover:decoration-[#00d8ff]"
-              >
-                {project.websiteUrl}
-              </a>
-            </ScrollReveal>
-          ) : null}
-
-          <ScrollReveal
-            variant="fade"
-            delay={280}
-            className="mt-12 flex flex-wrap gap-3"
-          >
-            {project.websiteUrl ? (
-              <a
-                href={project.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[#00d8ff] px-6 py-2.5 text-sm font-semibold text-[#0a0b10] transition hover:brightness-110"
-              >
-                Visit website
-              </a>
-            ) : null}
+          <ScrollReveal variant="fade" delay={280} className="mt-12">
             <Link
               href="/#projects"
               className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white/80 transition hover:border-white/40 hover:text-white"

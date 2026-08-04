@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import {
   ABOUT,
-  ASSET_PATHS,
   EDUCATION,
   SECTION_IDS,
   SITE,
@@ -16,9 +14,26 @@ export type AboutSectionProps = {
   bio?: string;
   fields?: AboutInfoItem[];
   locationLabel?: string;
-  /** Kept for API compatibility; about section uses the curated AI portrait. */
   profileImageUrl?: string | null;
 };
+
+const FOCUS_CARDS = [
+  {
+    title: "Clean UI",
+    detail: "Clear layouts & polish",
+    accent: "cyan" as const,
+  },
+  {
+    title: "Performance",
+    detail: "Fast, lean interfaces",
+    accent: "cyan" as const,
+  },
+  {
+    title: "Type-safe",
+    detail: "Reliable TypeScript",
+    accent: "amber" as const,
+  },
+] as const;
 
 export function AboutSection({
   siteName,
@@ -26,19 +41,12 @@ export function AboutSection({
   fields = [],
 }: AboutSectionProps) {
   const alt = siteName ?? SITE.name;
-  const imageSrc = ASSET_PATHS.ABOUT_PORTRAIT;
   const email =
     fields.find((f) => /email/i.test(f.label))?.value ?? SOCIAL.email;
 
   return (
-    <section
-      id={SECTION_IDS.ABOUT}
-      className="relative overflow-hidden"
-    >
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden
-      >
+    <section id={SECTION_IDS.ABOUT} className="relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
         <div className="absolute top-1/4 -left-20 size-72 rounded-full bg-[#00d8ff]/8 blur-3xl" />
         <div className="absolute right-0 bottom-0 size-80 rounded-full bg-[#f5b942]/6 blur-3xl" />
       </div>
@@ -123,84 +131,117 @@ export function AboutSection({
             </ScrollReveal>
           </div>
 
+          {/* Creative craft panel — no photo (already in hero) */}
           <ScrollReveal
             variant="right"
             delay={120}
             className="relative mx-auto w-full max-w-md lg:max-w-none"
           >
-            <div
-              className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_40%,rgba(0,216,255,0.3),transparent_60%),radial-gradient(circle_at_70%_75%,rgba(245,185,66,0.16),transparent_55%)] blur-3xl animate-glow"
-              aria-hidden
-            />
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#12141c]/80 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl md:p-7">
+              <div
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(0,216,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(0,216,255,0.04)_1px,transparent_1px)] bg-size-[22px_22px]"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute -top-10 right-0 size-40 rounded-full bg-[#00d8ff]/15 blur-3xl animate-glow"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute bottom-0 -left-8 size-32 rounded-full bg-[#f5b942]/10 blur-3xl"
+                aria-hidden
+              />
 
-            <div className="group relative mx-auto flex w-full max-w-[380px] flex-col items-center">
-              <div className="relative aspect-[4/5] w-full">
-                {/* Back plate — soft diamond tilt */}
-                <div
-                  className="pointer-events-none absolute inset-[10%] rotate-6 rounded-[40%] border border-[#f5b942]/25 bg-[#f5b942]/5"
-                  aria-hidden
-                />
-
-                {/* Orbit rings */}
-                <div
-                  className="animate-orbit pointer-events-none absolute inset-[-6%] rounded-full border border-dashed border-[#00d8ff]/30"
-                  aria-hidden
-                />
-                <div
-                  className="pointer-events-none absolute inset-[2%] rounded-full border border-white/10"
-                  aria-hidden
-                />
-                <div
-                  className="animate-border-shimmer pointer-events-none absolute inset-[6%] rounded-full bg-[conic-gradient(from_120deg,rgba(0,216,255,0.55),transparent_40%,rgba(245,185,66,0.45),transparent_75%,rgba(0,216,255,0.55))] opacity-70 blur-[0.5px]"
-                  style={{
-                    WebkitMaskImage:
-                      "radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px))",
-                    maskImage:
-                      "radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px))",
-                  }}
-                  aria-hidden
-                />
-
-                {/* Organic portrait shape */}
-                <div
-                  className="absolute inset-[9%] overflow-hidden bg-[#12141c] shadow-[0_30px_80px_rgba(0,0,0,0.55)] ring-1 ring-[#00d8ff]/35 transition duration-500 group-hover:ring-[#00d8ff]/60 group-hover:shadow-[0_35px_90px_rgba(0,216,255,0.18)]"
-                  style={{
-                    borderRadius: "58% 42% 48% 52% / 48% 42% 58% 52%",
-                  }}
-                >
-                  <Image
-                    src={imageSrc}
-                    alt={`${alt} — portrait`}
-                    width={1024}
-                    height={1536}
-                    className="animate-portrait-ken h-full w-full object-cover object-[center_15%] transition duration-700 group-hover:scale-110"
-                    priority
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0b10]/70 via-transparent to-white/5"
-                    aria-hidden
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 transition duration-700 group-hover:opacity-100"
-                    aria-hidden
-                  />
+              <div className="relative">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-[11px] font-semibold tracking-[0.18em] text-[#00d8ff] uppercase">
+                      Craft system
+                    </p>
+                    <p className="font-display mt-1 text-xl font-semibold text-white">
+                      How I approach product work
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#00d8ff]/30 bg-[#00d8ff]/10 px-2.5 py-1 text-[11px] font-medium text-[#00d8ff]">
+                    <span className="size-1.5 rounded-full bg-[#00d8ff]" />
+                    Active
+                  </span>
                 </div>
 
-                {/* Accent dots on orbit */}
-                <span
-                  className="animate-float absolute top-[12%] right-[8%] size-2.5 rounded-full bg-[#00d8ff] shadow-[0_0_12px_rgba(0,216,255,0.8)]"
-                  aria-hidden
-                />
-                <span
-                  className="absolute bottom-[18%] left-[6%] size-2 rounded-full bg-[#f5b942] shadow-[0_0_10px_rgba(245,185,66,0.7)]"
-                  style={{ animation: "float-soft 7s ease-in-out 0.6s infinite" }}
-                  aria-hidden
-                />
-              </div>
+                {/* Hub */}
+                <div className="relative mx-auto mt-8 aspect-square w-[78%] max-w-[260px]">
+                  <div
+                    className="absolute inset-[10%] rounded-full border border-[#00d8ff]/20"
+                    aria-hidden
+                  />
+                  <div
+                    className="animate-orbit-slow absolute inset-0 -rotate-[10deg] rounded-[50%] border border-dashed border-[#00d8ff]/35"
+                    aria-hidden
+                  />
+                  <span
+                    className="absolute top-[10%] right-[14%] size-2.5 rounded-full bg-[#00d8ff] shadow-[0_0_14px_rgba(0,216,255,1)]"
+                    aria-hidden
+                  />
+                  <span
+                    className="absolute bottom-[14%] left-[12%] size-2 rounded-full bg-[#f5b942] shadow-[0_0_12px_rgba(245,185,66,0.9)]"
+                    aria-hidden
+                  />
 
-              <p className="font-display mt-6 text-center text-xl font-semibold text-white">
-                {alt}
-              </p>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative flex size-36 flex-col items-center justify-center overflow-hidden rounded-full border border-white/15 bg-[#0a0b10]/95 shadow-[0_0_45px_rgba(0,216,255,0.25)] lg:size-40">
+                      <div
+                        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,216,255,0.2),transparent_55%)]"
+                        aria-hidden
+                      />
+                      <span className="font-display text-5xl font-bold text-white">
+                        {alt.charAt(0)}
+                      </span>
+                      <p className="mt-1.5 font-mono text-[10px] tracking-wide text-[#00d8ff]">
+                        {"{ build · ship }"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Focus cards with details */}
+                <div className="mt-8 grid gap-3">
+                  {FOCUS_CARDS.map((item) => (
+                    <div
+                      key={item.title}
+                      className={`rounded-xl border px-3.5 py-3 ${
+                        item.accent === "amber"
+                          ? "border-[#f5b942]/25 bg-[#f5b942]/[0.07]"
+                          : "border-white/10 bg-white/[0.03]"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <p
+                          className={`font-display text-sm font-semibold ${
+                            item.accent === "amber"
+                              ? "text-[#f5b942]"
+                              : "text-white"
+                          }`}
+                        >
+                          {item.title}
+                        </p>
+                        <span
+                          className={`size-1.5 rounded-full ${
+                            item.accent === "amber"
+                              ? "bg-[#f5b942]"
+                              : "bg-[#00d8ff]"
+                          }`}
+                          aria-hidden
+                        />
+                      </div>
+                      <p className="mt-0.5 text-xs text-white/50">{item.detail}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-5 font-mono text-[11px] leading-relaxed text-white/35">
+                  <span className="text-[#00d8ff]/80">focus</span>
+                  {` = ["UX clarity", "maintainable code", "ship fast"]`}
+                </p>
+              </div>
             </div>
           </ScrollReveal>
         </div>

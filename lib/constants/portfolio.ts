@@ -160,20 +160,6 @@ export const PROJECT_CATEGORIES: readonly ProjectCategory[] = [
 
 export const PROJECTS: readonly Project[] = [
   {
-    id: "kerala-library",
-    title: "Digital Library",
-    description:
-      "A digital platform to modernize Kerala libraries, enabling book cataloging, member registration, and due amount tracking. Developed with React for the frontend and Node.js for the backend, with an optimized serverless Lambda architecture to reduce AWS costs while maintaining performance.",
-    cardDescription:
-      "A platform to digitize Kerala libraries, streamlining book, member, and due amount management, as most libraries in Kerala still rely on physical records.",
-    stack: ["React", "TypeScript", "MongoDB", "Node.js", "AWS"],
-    category: "Apps",
-    image: "/images/projects/kerala-library-dashboard.png",
-    cardImage: "/images/projects/kerala-library-laptop.png",
-    websiteUrl: "https://www.keralalibrary.in/",
-    githubUrl: "https://github.com/devsruthi",
-  },
-  {
     id: "novera",
     title: "Novera - MarketPlace platform",
     tagline: "Dual-Role Marketplace Platform",
@@ -190,6 +176,7 @@ export const PROJECTS: readonly Project[] = [
       "Tailwind CSS",
     ],
     category: "Apps",
+    websiteUrl: "https://novera-commerce-platform.vercel.app/",
     image: "/images/projects/novera/novera-laptop.png",
     cardImage: "/images/projects/novera/novera-laptop.png",
     gallery: [
@@ -249,6 +236,20 @@ export const PROJECTS: readonly Project[] = [
       { title: "⚡ Optimized Performance" },
       { title: "🔍 Search & Product Filtering" },
     ],
+  },
+  {
+    id: "kerala-library",
+    title: "Digital Library",
+    description:
+      "A digital platform to modernize Kerala libraries, enabling book cataloging, member registration, and due amount tracking. Developed with React for the frontend and Node.js for the backend, with an optimized serverless Lambda architecture to reduce AWS costs while maintaining performance.",
+    cardDescription:
+      "A platform to digitize Kerala libraries, streamlining book, member, and due amount management, as most libraries in Kerala still rely on physical records.",
+    stack: ["React", "TypeScript", "MongoDB", "Node.js", "AWS"],
+    category: "Apps",
+    image: "/images/projects/kerala-library-dashboard.png",
+    cardImage: "/images/projects/kerala-library-laptop.png",
+    websiteUrl: "https://www.keralalibrary.in/",
+    githubUrl: "https://github.com/devsruthi",
   },
   {
     id: "campus-hub",
