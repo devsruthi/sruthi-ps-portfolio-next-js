@@ -161,8 +161,8 @@ export const PROJECT_CATEGORIES: readonly ProjectCategory[] = [
 export const PROJECTS: readonly Project[] = [
   {
     id: "novera",
-    title: "Novera - MarketPlace platform",
-    tagline: "Dual-Role Marketplace Platform",
+    title: "Novera - Dual marketplace platform",
+    tagline: "Dual marketplace platform",
     description:
       "Built a dual-role marketplace where customers browse curated products from independent stores while merchants manage inventory, products, orders, and storefronts through secure role-based dashboards.",
     cardDescription:
@@ -252,15 +252,90 @@ export const PROJECTS: readonly Project[] = [
     githubUrl: "https://github.com/devsruthi",
   },
   {
-    id: "campus-hub",
-    title: "Campus Hub",
+    id: "statekitjs",
+    title: "StateKitJS",
+    tagline: "React UI State Component Library · 2026",
     description:
-      "A student-facing web app for schedules and announcements — semantic HTML, accessible UI, and mobile-first CSS.",
-    stack: ["React", "HTML", "CSS", "TypeScript"],
-    category: "Websites",
-    image: "/images/projects/project-3.jpg",
-    websiteUrl: "https://github.com/devsruthi",
-    githubUrl: "https://github.com/devsruthi",
+      "Developed StateKitJS, an open-source React component library that simplifies handling common application states such as loading, empty, and error screens. The library provides customizable UI state components and a collection of modern animated loaders and spinners, enabling developers to build consistent, accessible, and visually polished interfaces with minimal effort. It includes responsive components, theme customization, comprehensive documentation, live demos, and an optimized developer experience for modern React applications.",
+    cardDescription:
+      "A modern React library for beautiful loading, empty, and error states — fully customizable components, themes, and seamless integration.",
+    stack: ["React", "TypeScript", "CSS3", "Vite", "npm", "GitHub"],
+    category: "Apps",
+    image: "/images/projects/statekitjs/logo.png",
+    cardImage: "/images/projects/statekitjs/laptop.png",
+    gallery: [
+      "/images/projects/statekitjs/logo.png",
+      "/images/projects/statekitjs/hq-demo.png",
+      "/images/projects/statekitjs/hq-loaders.png",
+    ],
+    websiteUrl: "https://statekitjs-playground.vercel.app/",
+    npmUrl: "https://www.npmjs.com/package/@statekitjs/react",
+    goal: {
+      title: "Goal / Why we use this?",
+      problem:
+        "Nested conditionals and one-off state components everywhere — loading, error, and empty checks make components hard to read, scatter logic across the app, and hurt maintainability.",
+      resolved:
+        "One declarative State component with a clear priority order: loading → error → empty → children. Cleaner, consistent, and easier to maintain.",
+      problemCode: `if (loading) return <Spinner />;
+
+if (error) return <ErrorView onRetry={refetch} />;
+
+if (!users.length) return <EmptyState />;
+
+return <UsersTable users={users} />;`,
+      resolvedCode: `import { State } from '@statekitjs/react';
+
+<State
+  loading={loading}
+  error={error}
+  empty={users.length === 0}
+  onRetry={refetch}
+>
+  <UsersTable users={users} />
+</State>`,
+    },
+    features: [
+      {
+        title: "Loading, Empty & Error states",
+        description:
+          "Ready-made UI states that keep screens consistent across your app.",
+      },
+      {
+        title: "15+ animated loaders",
+        description:
+          "Modern spinners and progress visuals you can swap with one prop.",
+      },
+      {
+        title: "Fully customizable",
+        description:
+          "Colors, sizes, themes, layouts, and animations — not just loaders.",
+      },
+      {
+        title: "Lightweight & fast",
+        description:
+          "Performance-focused package with no heavy UI framework dependency.",
+      },
+      {
+        title: "React & TypeScript",
+        description:
+          "Typed APIs and DX built for modern React applications.",
+      },
+      {
+        title: "Accessible & responsive",
+        description:
+          "Works cleanly across devices with accessible defaults.",
+      },
+      {
+        title: "Minutes to integrate",
+        description:
+          "Drop in StateKit components and replace boilerplate state UI fast.",
+      },
+      {
+        title: "Docs & live demos",
+        description:
+          "Interactive playground and documentation for every component.",
+      },
+    ],
   },
   {
     id: "folio-studio",

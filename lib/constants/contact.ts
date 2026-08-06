@@ -29,7 +29,7 @@ export const CONTACT_FORM_CLASSES = {
   label: "sr-only",
   textarea: "resize-y min-h-[140px]",
   submitButton:
-    "w-full rounded-full bg-[#00d8ff] px-8 py-3.5 text-[15px] font-semibold text-[#0a0b10] transition hover:brightness-110 disabled:opacity-60",
+    "w-full cursor-pointer rounded-full bg-[#00d8ff] px-8 py-3.5 text-[15px] font-semibold text-[#0a0b10] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60",
 } as const;
 
 /** Validation error messages returned to the user. */

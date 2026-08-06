@@ -105,13 +105,13 @@ function ProjectCard({
         <h3 className="font-display mt-4">
           <Link
             href={`/projects/${project.id}`}
-            className="block transition group-hover:text-[#00d8ff]"
+            className="block cursor-pointer outline-none focus-visible:rounded-md focus-visible:ring-2 focus-visible:ring-[#00d8ff]/60"
           >
-            <span className="block text-3xl font-bold tracking-tight text-white md:text-4xl">
+            <span className="block text-3xl font-bold tracking-tight text-white transition-colors hover:text-[#00d8ff] md:text-4xl group-hover:text-[#00d8ff]">
               {mainTitle}
             </span>
             {titleRest || project.tagline ? (
-              <span className="mt-1.5 block text-base font-medium tracking-wide text-[#00d8ff]/90 md:text-lg">
+              <span className="mt-1.5 block text-base font-medium tracking-wide text-[#00d8ff]/90 transition-colors hover:text-[#00d8ff] md:text-lg">
                 {titleRest || project.tagline}
               </span>
             ) : null}

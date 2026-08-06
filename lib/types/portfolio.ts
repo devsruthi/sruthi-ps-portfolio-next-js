@@ -72,6 +72,18 @@ export interface ProjectFeature {
   readonly description?: string;
 }
 
+export interface ProjectGoal {
+  readonly title?: string;
+  readonly problem: string;
+  readonly resolved: string;
+  /** Optional code example shown under the problem. */
+  readonly problemCode?: string;
+  /** Optional code example shown under what it resolved. */
+  readonly resolvedCode?: string;
+  /** Optional comparison / diagram image under the goal section. */
+  readonly image?: string;
+}
+
 export interface ProjectFlow {
   readonly title: string;
   readonly subtitle: string;
@@ -98,10 +110,14 @@ export interface Project {
   readonly cardImage?: string;
   /** Feature highlights for the project detail page. */
   readonly features?: readonly ProjectFeature[];
+  /** Goal / problem / what it resolved — shown before key features. */
+  readonly goal?: ProjectGoal;
   /** Customer / seller (or similar) flow sections. */
   readonly flows?: readonly ProjectFlow[];
   /** Public website / demo URL shown on the project detail page. */
   readonly websiteUrl?: string;
+  /** Optional npm package page. */
+  readonly npmUrl?: string;
   readonly githubUrl?: string;
 }
 
