@@ -265,8 +265,8 @@ export const PROJECTS: readonly Project[] = [
     cardImage: "/images/projects/statekitjs/laptop.png",
     gallery: [
       "/images/projects/statekitjs/logo.png",
-      "/images/projects/statekitjs/hq-demo.png",
-      "/images/projects/statekitjs/hq-loaders.png",
+      "/images/projects/statekitjs/slide-overview.png",
+      "/images/projects/statekitjs/slide-loaders.png",
     ],
     websiteUrl: "https://statekitjs-playground.vercel.app/",
     npmUrl: "https://www.npmjs.com/package/@statekitjs/react",
