@@ -40,7 +40,7 @@ export function ProjectGallerySlider({
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative aspect-[16/10] overflow-hidden rounded-[1.1rem] bg-[#0a0b10]">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-[1.1rem] bg-white/[0.02]">
         {slides.map((src, i) => (
           <div
             key={src}
@@ -57,10 +57,11 @@ export function ProjectGallerySlider({
               src={src}
               alt={`${title} screenshot ${i + 1}`}
               fill
-              className="object-contain"
-              sizes="(max-width: 1100px) 100vw, 1100px"
-              quality={95}
+              className="object-contain object-center"
+              sizes="(max-width: 768px) 100vw, 1600px"
+              quality={100}
               priority={i === 0}
+              unoptimized
             />
           </div>
         ))}

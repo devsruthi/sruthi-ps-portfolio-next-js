@@ -10,6 +10,7 @@ export type {
   ProjectCategory,
   ProjectFeature,
   ProjectFlow,
+  ProjectGoal,
   SkillCard,
   SkillItem,
   Skills,
