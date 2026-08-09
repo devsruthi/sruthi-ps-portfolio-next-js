@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { HashScroll } from "@/components/layout/HashScroll";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { AboutSection } from "@/components/home/AboutSection";
@@ -27,6 +28,7 @@ export default async function Home() {
   return (
     <>
       <ScrollProgress />
+      <HashScroll />
       <Header siteName={name} designation={designation} />
       <main>
         <Hero

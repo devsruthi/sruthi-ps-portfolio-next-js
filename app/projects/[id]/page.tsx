@@ -123,12 +123,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <section className="mt-16 space-y-16">
               <ScrollReveal variant="up">
                 <h2 className="font-display text-2xl font-bold text-white md:text-3xl">
-                  Customer &amp; seller flows
+                  {project.flowsHeading ?? "Product flows"}
                 </h2>
-                <p className="mt-2 max-w-2xl text-sm text-white/45">
-                  Novera supports two complete journeys in one marketplace —
-                  shopping for customers and store management for sellers.
-                </p>
+                {project.flowsIntro ? (
+                  <p className="mt-2 max-w-2xl text-sm text-white/45">
+                    {project.flowsIntro}
+                  </p>
+                ) : null}
               </ScrollReveal>
 
               {project.flows!.map((flow, flowIndex) => (
