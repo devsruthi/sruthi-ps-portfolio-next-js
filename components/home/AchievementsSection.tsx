@@ -95,21 +95,29 @@ function FeaturedAchievement({ item }: { item: Achievement }) {
 
         <div className="relative flex items-center justify-center">
           <div
-            className="absolute inset-6 rounded-full bg-[radial-gradient(circle,rgba(0,216,255,0.22),transparent_65%)] blur-xl"
+            className="pointer-events-none absolute inset-6 rounded-full bg-[radial-gradient(circle,rgba(0,216,255,0.22),transparent_65%)] blur-xl"
             aria-hidden
           />
-          <div className="relative flex aspect-square w-full max-w-[260px] items-center justify-center rounded-[2rem] border border-[#00d8ff]/30 bg-gradient-to-br from-[#161922] to-[#0f1118] shadow-[0_24px_60px_rgba(0,216,255,0.12)]">
+          <div className="relative flex aspect-square w-full max-w-[260px] flex-col items-center justify-center gap-4 overflow-hidden rounded-[1.75rem] border border-[#00d8ff]/30 bg-[#0f1118] p-6 shadow-[0_24px_60px_rgba(0,216,255,0.12)] [transform:translateZ(0)]">
+            <div className="relative size-28 sm:size-32">
+              <Image
+                src="/images/achievements/statekitjs-mark.png"
+                alt="StateKitJS logo"
+                fill
+                className="object-contain drop-shadow-[0_12px_28px_rgba(99,102,241,0.4)]"
+                sizes="128px"
+                quality={100}
+                unoptimized
+              />
+            </div>
             <div className="text-center">
-              <div className="mx-auto flex size-16 items-center justify-center rounded-2xl border border-[#00d8ff]/35 bg-[#00d8ff]/10 font-display text-2xl font-bold text-[#00d8ff]">
-                {"{S}"}
-              </div>
-              <p className="font-display mt-4 text-xl font-bold text-white">
+              <p className="font-display text-xl font-bold text-white">
                 StateKitJS
               </p>
               <p className="mt-1 text-xs tracking-wide text-white/45">
                 React UI State Library
               </p>
-              <div className="mt-4 flex justify-center gap-2">
+              <div className="mt-3 flex justify-center gap-2">
                 <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] text-white/50">
                   npm
                 </span>
