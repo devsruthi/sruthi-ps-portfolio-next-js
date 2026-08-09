@@ -152,7 +152,7 @@ function AwardCard({
           className="relative block w-full cursor-pointer overflow-hidden border-b border-white/5 bg-white text-left"
           aria-label={`View ${item.title} certificate`}
         >
-          <div className="relative aspect-[16/10]">
+          <div className="relative aspect-[16/12]">
             <Image
               src={item.image}
               alt={`${item.title} certificate`}
