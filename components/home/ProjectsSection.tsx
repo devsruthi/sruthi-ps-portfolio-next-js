@@ -73,7 +73,7 @@ function ProjectCard({
             src={project.cardImage ?? project.image}
             alt={project.title}
             fill
-            className="object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+            className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
             sizes="(max-width: 768px) 100vw, 560px"
             quality={100}
             priority={index < 2}

@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NAV_ITEMS, SECTION_IDS, SITE, SOCIAL } from "@/lib/constants";
 
-function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
-  e.preventDefault();
-  document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+function sectionPath(hash: string) {
+  return hash.startsWith("#") ? `/${hash}` : `/#${hash}`;
 }
 
 /** Site name from CMS (basic details). Falls back to SITE.name if not provided. */
@@ -19,6 +19,8 @@ export function Header({
 }) {
   const name = siteName ?? SITE.name;
   const role = designation ?? SITE.title;
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -27,6 +29,15 @@ export function Header({
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleSectionClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    hash: string,
+  ) => {
+    if (!isHome) return;
+    e.preventDefault();
+    document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <header
@@ -42,8 +53,8 @@ export function Header({
         }`}
       >
         <Link
-          href={`#${SECTION_IDS.HOME}`}
-          onClick={(e) => scrollToSection(e, `#${SECTION_IDS.HOME}`)}
+          href={isHome ? `#${SECTION_IDS.HOME}` : `/#${SECTION_IDS.HOME}`}
+          onClick={(e) => handleSectionClick(e, `#${SECTION_IDS.HOME}`)}
           className="group flex min-w-0 items-center gap-3"
         >
           <span className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-[#00d8ff]/40 bg-[#00d8ff]/10 font-display text-sm font-bold text-[#00d8ff] transition group-hover:bg-[#00d8ff]/20">
@@ -63,8 +74,8 @@ export function Header({
           {NAV_ITEMS.map(({ label, href }) => (
             <Link
               key={href}
-              href={href}
-              onClick={(e) => scrollToSection(e, href)}
+              href={isHome ? href : sectionPath(href)}
+              onClick={(e) => handleSectionClick(e, href)}
               className="rounded-full px-3.5 py-2 text-sm text-white/70 transition hover:bg-white/5 hover:text-white"
             >
               {label}
@@ -85,8 +96,14 @@ export function Header({
             </svg>
           </a>
           <Link
-            href={`#${SECTION_IDS.CONTACT}`}
-            onClick={(e) => scrollToSection(e, `#${SECTION_IDS.CONTACT}`)}
+            href={
+              isHome
+                ? `#${SECTION_IDS.CONTACT}`
+                : `/#${SECTION_IDS.CONTACT}`
+            }
+            onClick={(e) =>
+              handleSectionClick(e, `#${SECTION_IDS.CONTACT}`)
+            }
             className="rounded-full border border-[#00d8ff]/50 px-4 py-2 text-sm font-medium text-[#00d8ff] transition hover:bg-[#00d8ff]/10"
           >
             Contact me

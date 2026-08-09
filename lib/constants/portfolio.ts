@@ -159,99 +159,7 @@ export const PROJECT_CATEGORIES: readonly ProjectCategory[] = [
 ] as const;
 
 export const PROJECTS: readonly Project[] = [
-  {
-    id: "novera",
-    title: "Novera - Dual marketplace platform",
-    tagline: "Dual marketplace platform",
-    description:
-      "Built a dual-role marketplace where customers browse curated products from independent stores while merchants manage inventory, products, orders, and storefronts through secure role-based dashboards.",
-    cardDescription:
-      "Dual-role marketplace — customers shop curated products, merchants manage inventory, orders, and storefronts.",
-    stack: [
-      "React",
-      "TypeScript",
-      "Supabase",
-      "PostgreSQL",
-      "Row Level Security",
-      "Tailwind CSS",
-    ],
-    category: "Apps",
-    websiteUrl: "https://novera-commerce-platform.vercel.app/",
-    image: "/images/projects/novera/novera-laptop.png",
-    cardImage: "/images/projects/novera/novera-laptop.png",
-    gallery: [
-      "/images/projects/novera/novera-laptop.png",
-      "/images/projects/novera/hq-home.png",
-      "/images/projects/novera/hq-shop.png",
-      "/images/projects/novera/hq-dashboard.png",
-      "/images/projects/novera/hq-products.png",
-      "/images/projects/novera/hq-signup.png",
-    ],
-    flows: [
-      {
-        title: "Customer flow",
-        subtitle: "Shop & discover",
-        description:
-          "Customers join Novera to browse curated fashion, explore collections, and complete a smooth shopping journey from discovery to order tracking.",
-        highlights: [
-          "Browse home and curated product collections",
-          "Shop with filters, categories, wishlist, and cart",
-          "Track orders and manage a signed-in shopping profile",
-          "Create a customer account to start shopping quickly",
-        ],
-        images: [
-          "/images/projects/novera/novera-laptop.png",
-          "/images/projects/novera/hq-home.png",
-          "/images/projects/novera/hq-shop.png",
-          "/images/projects/novera/hq-signup.png",
-        ],
-      },
-      {
-        title: "Seller flow",
-        subtitle: "Sell & manage",
-        description:
-          "Shop owners use a dedicated dashboard to run their store — from inventory and product management to sales performance and category organization.",
-        highlights: [
-          "Overview dashboard with inventory and sales insights",
-          "Manage products, pricing, stock, and status",
-          "Organize shoppable categories for the storefront",
-          "Create a seller account to open and grow a shop",
-        ],
-        images: [
-          "/images/projects/novera/hq-dashboard.png",
-          "/images/projects/novera/hq-products.png",
-          "/images/projects/novera/hq-seller-signup.png",
-        ],
-      },
-    ],
-    features: [
-      { title: "🛒 Multi-Vendor Marketplace" },
-      { title: "🔐 Authentication & Role-Based Access Control" },
-      { title: "🛡️ Supabase Row Level Security" },
-      { title: "📦 Product & Inventory Management" },
-      { title: "❤️ Wishlist & Shopping Cart" },
-      { title: "📑 Order Management" },
-      { title: "🏪 Merchant Dashboard" },
-      { title: "📱 Fully Responsive Design" },
-      { title: "⚡ Optimized Performance" },
-      { title: "🔍 Search & Product Filtering" },
-    ],
-  },
-  {
-    id: "kerala-library",
-    title: "Digital Library",
-    description:
-      "A digital platform to modernize Kerala libraries, enabling book cataloging, member registration, and due amount tracking. Developed with React for the frontend and Node.js for the backend, with an optimized serverless Lambda architecture to reduce AWS costs while maintaining performance.",
-    cardDescription:
-      "A platform to digitize Kerala libraries, streamlining book, member, and due amount management, as most libraries in Kerala still rely on physical records.",
-    stack: ["React", "TypeScript", "MongoDB", "Node.js", "AWS"],
-    category: "Apps",
-    image: "/images/projects/kerala-library-dashboard.png",
-    cardImage: "/images/projects/kerala-library-laptop.png",
-    websiteUrl: "https://www.keralalibrary.in/",
-    githubUrl: "https://github.com/devsruthi",
-  },
-  {
+{
     id: "statekitjs",
     title: "StateKitJS",
     tagline: "React UI State Component Library · 2026",
@@ -337,17 +245,182 @@ return <UsersTable users={users} />;`,
       },
     ],
   },
-  {
-    id: "folio-studio",
-    title: "Folio Studio",
+{
+    id: "fudexa",
+    title: "Fudexa",
+    tagline: "Restaurant Operations Platform",
     description:
-      "A personal portfolio builder with theming and section layouts — demonstrating Next.js pages, clean styling, and deployable product work.",
-    stack: ["Next.js", "React", "SASS", "TypeScript"],
+      "A full-stack, real-time restaurant operations platform designed to streamline order handling and day-to-day workflows for restaurant owners. Merchants manage incoming orders, kitchen workflows, menus, inventory, and analytics from a centralized dashboard — while customers get a smooth food ordering experience with restaurant discovery, menu browsing, checkout, and real-time order tracking.",
+    cardDescription:
+      "A real-time restaurant operations platform focused on efficient order handling for merchants, with seamless food ordering for customers.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Supabase",
+      "PostgreSQL",
+      "TanStack Query",
+      "Tailwind CSS",
+      "Zod",
+    ],
     category: "Apps",
-    image: "/images/projects/project-4.jpg",
-    websiteUrl: "https://github.com/devsruthi",
-    githubUrl: "https://github.com/devsruthi",
+    websiteUrl: "https://fudexa.vercel.app/",
+    image: "/images/projects/fudexa/fudexa-banner-v2.png",
+    cardImage: "/images/projects/fudexa/fudexa-banner-v2.png",
+    gallery: [
+      "/images/projects/fudexa/fudexa-banner-v2.png",
+      "/images/projects/fudexa/landing.png",
+      "/images/projects/fudexa/login.png",
+    ],
+    flowsHeading: "Restaurant & customer flows",
+    flowsIntro:
+      "Fudexa is merchant-first for real-time restaurant operations, with a complete customer ordering journey alongside it.",
+    flows: [
+      {
+        title: "Restaurant flow",
+        subtitle: "Ops & kitchen",
+        description:
+          "Restaurant owners run the floor from one dashboard — accept live orders, manage menus and inventory, and track performance with analytics.",
+        highlights: [
+          "Real-time order board (pending → preparing → ready)",
+          "Menu & category management with stock and status",
+          "Inventory tracking and performance analytics",
+          "Role-based restaurant signup and settings",
+        ],
+        images: [
+          "/images/projects/fudexa/signup-restaurant.png",
+          "/images/projects/fudexa/merchant-orders.png",
+          "/images/projects/fudexa/merchant-menu.png",
+          "/images/projects/fudexa/merchant-analytics.png",
+        ],
+      },
+      {
+        title: "Customer ordering flow",
+        subtitle: "Order & track",
+        description:
+          "Diners discover nearby kitchens, browse menus, place orders, and track deliveries in real time — with order history and profile management.",
+        highlights: [
+          "Browse restaurants, search, and filter dishes",
+          "View restaurant details and menus",
+          "Cart, checkout, and real-time order tracking",
+          "Order history and customer account management",
+        ],
+        images: [
+          "/images/projects/fudexa/signup-customer.png",
+          "/images/projects/fudexa/customer-home.png",
+          "/images/projects/fudexa/customer-restaurant.png",
+          "/images/projects/fudexa/customer-orders.png",
+        ],
+      },
+    ],
+    features: [
+      { title: "🏪 Real-time merchant order management" },
+      { title: "👨‍🍳 Live kitchen status updates" },
+      { title: "📋 Menu, category & inventory control" },
+      { title: "📊 Analytics & performance insights" },
+      { title: "⭐ Customer reviews & ratings" },
+      { title: "🔐 Auth & role-based access (customer + restaurant)" },
+      { title: "🍔 Customer restaurant discovery & ordering" },
+      { title: "📦 Real-time order tracking & history" },
+      { title: "⚡ Supabase Realtime + PostgreSQL + RLS" },
+      { title: "🧩 Zod + React Hook Form + TanStack Query" },
+    ],
   },
+{
+    id: "novera",
+    title: "Novera - Dual marketplace platform",
+    tagline: "Dual marketplace platform",
+    description:
+      "Built a dual-role marketplace where customers browse curated products from independent stores while merchants manage inventory, products, orders, and storefronts through secure role-based dashboards.",
+    cardDescription:
+      "Dual-role marketplace — customers shop curated products, merchants manage inventory, orders, and storefronts.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Row Level Security",
+      "Tailwind CSS",
+    ],
+    category: "Apps",
+    websiteUrl: "https://novera-commerce-platform.vercel.app/",
+    image: "/images/projects/novera/novera-banner.png",
+    cardImage: "/images/projects/novera/novera-banner.png",
+    gallery: [
+      "/images/projects/novera/novera-banner.png",
+      "/images/projects/novera/hq-home.png",
+      "/images/projects/novera/hq-shop.png",
+      "/images/projects/novera/hq-dashboard.png",
+      "/images/projects/novera/hq-products.png",
+      "/images/projects/novera/hq-signup.png",
+    ],
+    flowsHeading: "Customer & seller flows",
+    flowsIntro:
+      "Novera supports two complete journeys in one marketplace — shopping for customers and store management for sellers.",
+    flows: [
+      {
+        title: "Customer flow",
+        subtitle: "Shop & discover",
+        description:
+          "Customers join Novera to browse curated fashion, explore collections, and complete a smooth shopping journey from discovery to order tracking.",
+        highlights: [
+          "Browse home and curated product collections",
+          "Shop with filters, categories, wishlist, and cart",
+          "Track orders and manage a signed-in shopping profile",
+          "Create a customer account to start shopping quickly",
+        ],
+        images: [
+          "/images/projects/novera/hq-signup.png",
+          "/images/projects/novera/novera-laptop.png",
+          "/images/projects/novera/hq-home.png",
+          "/images/projects/novera/hq-shop.png",
+        ],
+      },
+      {
+        title: "Seller flow",
+        subtitle: "Sell & manage",
+        description:
+          "Shop owners use a dedicated dashboard to run their store — from inventory and product management to sales performance and category organization.",
+        highlights: [
+          "Overview dashboard with inventory and sales insights",
+          "Manage products, pricing, stock, and status",
+          "Organize shoppable categories for the storefront",
+          "Create a seller account to open and grow a shop",
+        ],
+        images: [
+          "/images/projects/novera/hq-seller-signup.png",
+          "/images/projects/novera/hq-dashboard.png",
+          "/images/projects/novera/hq-products.png",
+        ],
+      },
+    ],
+    features: [
+      { title: "🛒 Multi-Vendor Marketplace" },
+      { title: "🔐 Authentication & Role-Based Access Control" },
+      { title: "🛡️ Supabase Row Level Security" },
+      { title: "📦 Product & Inventory Management" },
+      { title: "❤️ Wishlist & Shopping Cart" },
+      { title: "📑 Order Management" },
+      { title: "🏪 Merchant Dashboard" },
+      { title: "📱 Fully Responsive Design" },
+      { title: "⚡ Optimized Performance" },
+      { title: "🔍 Search & Product Filtering" },
+    ],
+  },
+{
+    id: "kerala-library",
+    title: "Digital Library",
+    description:
+      "A digital platform to modernize Kerala libraries, enabling book cataloging, member registration, and due amount tracking. Developed with React for the frontend and Node.js for the backend, with an optimized serverless Lambda architecture to reduce AWS costs while maintaining performance.",
+    cardDescription:
+      "A platform to digitize Kerala libraries, streamlining book, member, and due amount management, as most libraries in Kerala still rely on physical records.",
+    stack: ["React", "TypeScript", "MongoDB", "Node.js", "AWS"],
+    category: "Apps",
+    image: "/images/projects/kerala-library-dashboard.png",
+    cardImage: "/images/projects/kerala-library-laptop.png",
+    websiteUrl: "https://www.keralalibrary.in/",
+    githubUrl: "https://github.com/devsruthi",
+  }
 ] as const;
 
 export function getProjectById(id: string): Project | undefined {

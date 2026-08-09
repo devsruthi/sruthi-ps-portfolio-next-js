@@ -114,6 +114,10 @@ export interface Project {
   readonly goal?: ProjectGoal;
   /** Customer / seller (or similar) flow sections. */
   readonly flows?: readonly ProjectFlow[];
+  /** Optional heading above the dual-flow sections. */
+  readonly flowsHeading?: string;
+  /** Optional intro copy under the flows heading. */
+  readonly flowsIntro?: string;
   /** Public website / demo URL shown on the project detail page. */
   readonly websiteUrl?: string;
   /** Optional npm package page. */

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type ProjectGallerySliderProps = {
   title: string;
@@ -14,18 +14,6 @@ export function ProjectGallerySlider({
 }: ProjectGallerySliderProps) {
   const slides = images.length ? images : [];
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (slides.length <= 1 || paused) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const id = window.setInterval(() => {
-      setIndex((current) => (current + 1) % slides.length);
-    }, 4200);
-
-    return () => window.clearInterval(id);
-  }, [paused, slides.length]);
 
   if (slides.length === 0) return null;
 
@@ -35,11 +23,7 @@ export function ProjectGallerySlider({
   };
 
   return (
-    <div
-      className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#12141c] p-3 shadow-[0_30px_80px_rgba(0,0,0,0.35)] md:p-4"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
+    <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#12141c] p-3 shadow-[0_30px_80px_rgba(0,0,0,0.35)] md:p-4">
       <div className="relative aspect-[16/10] overflow-hidden rounded-[1.1rem] bg-white/[0.02]">
         {slides.map((src, i) => (
           <div
