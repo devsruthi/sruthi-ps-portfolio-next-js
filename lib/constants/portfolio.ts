@@ -20,7 +20,7 @@ export const SITE: Site = {
 export const SOCIAL: SocialLinks = {
   github: "https://github.com/devsruthi",
   linkedin: "https://www.linkedin.com/in/dev-sruthi-ps/",
-  email: "sruthi.ps.contact@gmail.com",
+  email: "hello@sruthips.com",
 };
 
 export const HERO: Hero = {
@@ -47,7 +47,7 @@ export const ABOUT: About = {
     "English fluent · German A2",
   fields: [
     { label: "Phone", value: "+49 15511048943" },
-    { label: "Email", value: "sruthips395@gmail.com" },
+    { label: "Email", value: "hello@sruthips.com" },
     {
       label: "Education",
       value: "M.Eng. Computer Science — GISMA University (2026 – Present)",
