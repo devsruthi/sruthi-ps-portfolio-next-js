@@ -5,6 +5,7 @@ import { Hero } from "@/components/home/Hero";
 import { AboutSection } from "@/components/home/AboutSection";
 import { SkillsSection } from "@/components/home/SkillsSection";
 import { ProjectsSection } from "@/components/home/ProjectsSection";
+import { AchievementsSection } from "@/components/home/AchievementsSection";
 import { ContactSection } from "@/components/contact/ContactSection";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { getHero, getAbout } from "@/lib/services/portfolio-content";
@@ -45,11 +46,12 @@ export default async function Home() {
           locationLabel="Potsdam, Germany"
           profileImageUrl={profileImageUrl}
         />
+        <ProjectsSection />
         <SkillsSection
           title={SKILLS.description}
           description={SKILLS.summary}
         />
-        <ProjectsSection />
+        <AchievementsSection />
         <ContactSection />
       </main>
       <Footer />
