@@ -1,6 +1,8 @@
 export type {
   About,
   AboutField,
+  Achievement,
+  AchievementKind,
   CareerHighlight,
   ContactFormData,
   EducationItem,

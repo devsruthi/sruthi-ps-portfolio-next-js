@@ -125,6 +125,20 @@ export interface Project {
   readonly githubUrl?: string;
 }
 
+export type AchievementKind = "award" | "recognition" | "open-source";
+
+export interface Achievement {
+  readonly id: string;
+  readonly kind: AchievementKind;
+  readonly title: string;
+  readonly org: string;
+  readonly description: string;
+  readonly highlight?: string;
+  readonly image?: string;
+  readonly href?: string;
+  readonly hrefLabel?: string;
+}
+
 export interface ContactFormData {
   readonly name: string;
   readonly email: string;
