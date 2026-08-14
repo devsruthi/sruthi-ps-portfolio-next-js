@@ -46,92 +46,68 @@ function FeaturedAchievement({ item }: { item: Achievement }) {
   const styles = kindStyles(item.kind);
 
   return (
-    <ScrollReveal variant="up" className="relative overflow-hidden rounded-[1.75rem]">
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${styles.glow}`}
-        aria-hidden
-      />
-      <div
-        className="absolute -right-16 -top-16 size-56 rounded-full bg-[#00d8ff]/15 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="absolute -bottom-20 left-1/3 size-64 rounded-full bg-[#818cf8]/15 blur-3xl"
-        aria-hidden
-      />
-
-      <div className="relative grid gap-8 border border-[#00d8ff]/25 bg-[#12141c]/80 p-6 backdrop-blur-sm md:grid-cols-[1.15fr_0.85fr] md:p-8 lg:p-10">
-        <div>
-          <div className="flex flex-wrap items-center gap-2">
+    <ScrollReveal variant="fade">
+      <article className="rounded-3xl bg-[#12141c] p-5 shadow-[0_0_0_1px_rgba(0,216,255,0.3),0_18px_40px_rgba(0,0,0,0.28)] md:p-6">
+        <div className="grid items-center gap-5 md:grid-cols-[minmax(0,1fr)_210px]">
+          <div>
             <span
               className={`rounded-full border px-3 py-1 text-[11px] font-semibold tracking-[0.16em] uppercase ${styles.badge}`}
             >
               {kindLabel(item.kind)}
             </span>
-            {item.highlight ? (
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-white/55">
-                {item.highlight}
-              </span>
+
+            <h3 className="font-display mt-3 text-2xl font-bold tracking-tight text-white md:text-3xl">
+              {item.title}
+            </h3>
+            <p className="mt-1.5 text-sm font-medium text-[#00d8ff]/90">
+              {item.org}
+            </p>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/60 md:text-[15px]">
+              {item.description}
+            </p>
+
+            {item.href ? (
+              <Link
+                href={item.href}
+                className="mt-4 inline-flex min-h-[40px] items-center justify-center rounded-full bg-[#00d8ff] px-5 py-2 text-sm font-semibold text-[#0a0b10] transition hover:brightness-110"
+              >
+                {item.hrefLabel ?? "Learn more →"}
+              </Link>
             ) : null}
           </div>
 
-          <h3 className="font-display mt-5 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            {item.title}
-          </h3>
-          <p className="mt-2 text-sm font-medium text-[#00d8ff]/90">{item.org}</p>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-white/60">
-            {item.description}
-          </p>
-
-          {item.href ? (
-            <Link
-              href={item.href}
-              className="mt-6 inline-flex min-h-[42px] items-center justify-center rounded-full bg-[#00d8ff] px-5 py-2 text-sm font-semibold text-[#0a0b10] transition hover:brightness-110"
-            >
-              {item.hrefLabel ?? "Learn more →"}
-            </Link>
-          ) : null}
-        </div>
-
-        <div className="relative flex items-center justify-center">
-          <div
-            className="pointer-events-none absolute inset-6 rounded-full bg-[radial-gradient(circle,rgba(0,216,255,0.22),transparent_65%)] blur-xl"
-            aria-hidden
-          />
-          <div className="relative flex aspect-square w-full max-w-[260px] flex-col items-center justify-center gap-4 overflow-hidden rounded-[1.75rem] border border-[#00d8ff]/30 bg-[#0f1118] p-6 shadow-[0_24px_60px_rgba(0,216,255,0.12)] [transform:translateZ(0)]">
-            <div className="relative size-28 sm:size-32">
+          <div className="flex w-full flex-col items-center justify-center rounded-2xl bg-[#0f1118] px-4 py-4 shadow-[0_0_0_1px_rgba(0,216,255,0.28)]">
+            <div className="relative size-16">
               <Image
                 src="/images/achievements/statekitjs-mark.png"
                 alt="StateKitJS logo"
                 fill
-                className="object-contain drop-shadow-[0_12px_28px_rgba(99,102,241,0.4)]"
-                sizes="128px"
+                className="object-contain"
+                sizes="64px"
                 quality={100}
                 unoptimized
               />
             </div>
-            <div className="text-center">
-              <p className="font-display text-xl font-bold text-white">
-                StateKitJS
-              </p>
-              <p className="mt-1 text-xs tracking-wide text-white/45">
-                React UI State Library
-              </p>
-              <div className="mt-3 flex justify-center gap-2">
-                <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] text-white/50">
-                  npm
-                </span>
-                <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] text-white/50">
-                  Docs
-                </span>
-                <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] text-white/50">
-                  TypeScript
-                </span>
-              </div>
+            <p className="font-display mt-2 text-base font-bold text-white">
+              StateKitJS
+            </p>
+            <p className="mt-0.5 text-[11px] tracking-wide text-white/45">
+              React UI State Library
+            </p>
+            <div className="mt-2.5 flex justify-center gap-1.5">
+              <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] text-white/50">
+                npm
+              </span>
+              <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] text-white/50">
+                Docs
+              </span>
+              <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] text-white/50">
+                TypeScript
+              </span>
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </ScrollReveal>
   );
 }
