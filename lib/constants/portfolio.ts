@@ -31,6 +31,7 @@ export const HERO: Hero = {
   stack: [
     "React",
     "Next.js",
+    "Node.js",
     "JavaScript",
     "TypeScript",
     "HTML",
