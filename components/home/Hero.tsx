@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ResumeDownloadButton } from "@/components/home/ResumeDownloadButton";
@@ -15,6 +17,10 @@ export function Hero({
   intro,
   stack = HERO.stack,
 }: HeroProps) {
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section id={SECTION_IDS.HOME} className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden>
@@ -62,7 +68,11 @@ export function Hero({
           <div className="animate-hero-text-4 mt-8 flex flex-wrap items-center gap-4">
             <Link
               href={`#${SECTION_IDS.PROJECTS}`}
-              className="group inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#00d8ff] px-8 py-2.5 text-[15px] font-semibold text-[#0a0b10] shadow-[0_0_32px_rgba(0,216,255,0.35)] transition hover:brightness-110"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollTo(SECTION_IDS.PROJECTS);
+              }}
+              className="group inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded-full bg-[#00d8ff] px-8 py-2.5 text-[15px] font-semibold text-[#0a0b10] shadow-[0_0_32px_rgba(0,216,255,0.35)] transition hover:brightness-110"
             >
               See my projects
               <span className="ml-2 transition-transform group-hover:translate-x-0.5">
@@ -72,7 +82,11 @@ export function Hero({
             <ResumeDownloadButton variant="link" label="Download CV" />
             <Link
               href={`#${SECTION_IDS.CONTACT}`}
-              className="inline-flex min-h-[44px] items-center justify-center text-[15px] font-medium text-white/65 transition hover:text-white"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollTo(SECTION_IDS.CONTACT);
+              }}
+              className="inline-flex min-h-[44px] cursor-pointer items-center justify-center text-[15px] font-medium text-white/65 transition hover:text-white"
             >
               Contact me
             </Link>
