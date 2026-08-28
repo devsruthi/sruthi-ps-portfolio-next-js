@@ -326,6 +326,101 @@ return <UsersTable users={users} />;`,
       { title: "🧩 Zod + React Hook Form + TanStack Query" },
     ],
   },
+  {
+    id: "orbis",
+    title: "Orbis",
+    tagline: "AI Language Immersion Simulator",
+    description:
+      "Orbis is an AI-powered language immersion app that helps you learn by having natural conversations in your target language. Communicate with AI characters, speak or type your responses, and get replies adapted to your CEFR level. Instead of memorizing phrases, Orbis helps you build confidence through real-world communication.",
+    cardDescription:
+      "AI language immersion app — speak or type in real-life scenes, with Claude replies, voice, and scored evaluations.",
+    stack: [
+      "Anthropic Claude",
+      "Inngest",
+      "Next.js",
+      "React",
+      "Postgres",
+      "TypeScript",
+      "Tailwind CSS",
+      "Auth.js",
+      "Zod",
+      "Vercel",
+    ],
+    category: "Apps",
+    websiteUrl: "https://orbis-seven-tawny.vercel.app/",
+    image: "/images/projects/orbis/orbis-hero.png",
+    cardImage: "/images/projects/orbis/orbis-thumb.png",
+    gallery: [
+      "/images/projects/orbis/orbis-hero.png",
+      "/images/projects/orbis/dashboard-wide.png",
+      "/images/projects/orbis/missions-wide.png",
+      "/images/projects/orbis/mission-chat-wide.png",
+    ],
+    flowsHeading: "Immersion & AI coaching",
+    flowsIntro:
+      "Speak or type in a live scene. Claude stays in character — and coaching (checks, scores, reviews) happens around the conversation, not instead of it.",
+    flows: [
+      {
+        title: "Immersion flow",
+        subtitle: "Claude · Anthropic",
+        description:
+          "Voice is an input method, not a separate product: speech-to-text → Claude turn → text-to-speech. Typed messages get a pre-send spelling/grammar check. Completing a session queues evaluation (Inngest, or inline fallback) against the stored transcript.",
+        highlights: [
+          "Speak or type in the same conversation",
+          "Pre-send spelling & grammar check (Claude)",
+          "Session evaluation with scores and mistake reviews",
+          "Progress, streaks, and spaced reviews on the dashboard",
+        ],
+        images: [
+          "/images/projects/orbis/mission-listening-wide.png",
+          "/images/projects/orbis/evaluation-loading.png",
+          "/images/projects/orbis/evaluation-wide.png",
+        ],
+      },
+    ],
+    features: [
+      {
+        title: "Anthropic Claude conversation",
+        description:
+          "Official Anthropic SDK on the server only — characters reply in the target language at your CEFR level.",
+      },
+      {
+        title: "Voice in, speech out",
+        description:
+          "Speak → speech-to-text → Claude turn → text-to-speech. Type as a fallback. No separate voice API.",
+      },
+      {
+        title: "Pre-send language check",
+        description:
+          "Typed messages can be checked for spelling and grammar before they go to the character.",
+      },
+      {
+        title: "Mission objectives",
+        description:
+          "Scenes have required points (greet, order, ask the price). Complete session waits until you actually say them.",
+      },
+      {
+        title: "Scored evaluation",
+        description:
+          "Inngest (or inline) evaluates the stored conversation — overall score, grammar, vocabulary, naturalness, and reviews.",
+      },
+      {
+        title: "CEFR A1–C1",
+        description:
+          "German and French worlds with levels from beginner through advanced, kept separate per language.",
+      },
+      {
+        title: "Auth.js + Google",
+        description:
+          "Optional Google sign-in. A learner id still works without an account.",
+      },
+      {
+        title: "Postgres · Zod · Next.js",
+        description:
+          "App Router API, Zod validation, Postgres on Vercel — Claude keys never reach the client.",
+      },
+    ],
+  },
 {
     id: "novera",
     title: "Novera - Dual marketplace platform",
