@@ -8,7 +8,7 @@ export function ProjectsSection() {
   return (
     <section
       id={SECTION_IDS.PROJECTS}
-      className="relative mx-auto w-full max-w-[1200px] px-5 py-20 md:px-8 md:py-28"
+      className="relative mx-auto w-full max-w-[1280px] px-5 py-20 md:px-8 md:py-28"
     >
       <div
         className="pointer-events-none absolute inset-x-0 top-10 mx-auto h-64 max-w-3xl rounded-full bg-[#00d8ff]/10 blur-3xl"
@@ -25,7 +25,7 @@ export function ProjectsSection() {
         </p>
       </ScrollReveal>
 
-      <div className="relative grid gap-8 md:grid-cols-2">
+      <div className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map((project, index) => (
           <ProjectCard
             key={project.id}
@@ -48,7 +48,7 @@ function ProjectCard({
   const titleParts = project.title.split(" - ");
   const mainTitle = titleParts[0] ?? project.title;
   const titleRest = titleParts.slice(1).join(" - ");
-  const stackPreview = project.stack.slice(0, 4);
+  const stackPreview = project.stack.slice(0, 3);
 
   return (
     <ScrollReveal
@@ -74,7 +74,7 @@ function ProjectCard({
             alt={project.title}
             fill
             className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
-            sizes="(max-width: 768px) 100vw, 560px"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
             quality={100}
             priority={index < 2}
           />
@@ -85,7 +85,7 @@ function ProjectCard({
         </div>
       </Link>
 
-      <div className="flex flex-1 flex-col p-6 md:p-7">
+      <div className="flex flex-1 flex-col p-5 md:p-6">
         <div className="flex flex-wrap gap-2">
           {stackPreview.map((skill) => (
             <span
@@ -107,18 +107,18 @@ function ProjectCard({
             href={`/projects/${project.id}`}
             className="block cursor-pointer outline-none focus-visible:rounded-md focus-visible:ring-2 focus-visible:ring-[#00d8ff]/60"
           >
-            <span className="block text-3xl font-bold tracking-tight text-white transition-colors hover:text-[#00d8ff] md:text-4xl group-hover:text-[#00d8ff]">
+            <span className="block text-2xl font-bold tracking-tight text-white transition-colors hover:text-[#00d8ff] md:text-3xl group-hover:text-[#00d8ff]">
               {mainTitle}
             </span>
             {titleRest || project.tagline ? (
-              <span className="mt-1.5 block text-base font-medium tracking-wide text-[#00d8ff]/90 transition-colors hover:text-[#00d8ff] md:text-lg">
+              <span className="mt-1.5 block text-sm font-medium tracking-wide text-[#00d8ff]/90 transition-colors hover:text-[#00d8ff] md:text-base">
                 {titleRest || project.tagline}
               </span>
             ) : null}
           </Link>
         </h3>
 
-        <p className="mt-4 flex-1 text-[15px] leading-relaxed text-white/55">
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-white/55">
           {project.cardDescription ?? project.description}
         </p>
 
