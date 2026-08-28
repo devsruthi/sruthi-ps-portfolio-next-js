@@ -335,7 +335,8 @@ return <UsersTable users={users} />;`,
     cardDescription:
       "AI language immersion app — speak or type in real-life scenes, with Claude replies, voice, and scored evaluations.",
     stack: [
-      "Anthropic Claude",
+      "Claude API",
+      "Anthropic SDK",
       "Inngest",
       "Next.js",
       "React",
