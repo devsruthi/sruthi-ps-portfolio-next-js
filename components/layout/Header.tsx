@@ -37,6 +37,7 @@ export function Header({
     if (!isHome) return;
     e.preventDefault();
     document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
+    window.history.replaceState(null, "", window.location.pathname);
   };
 
   return (

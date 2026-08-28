@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { ResumeDownloadButton } from "@/components/home/ResumeDownloadButton";
 import { ASSET_PATHS, HERO, SECTION_IDS } from "@/lib/constants";
 
@@ -66,30 +65,24 @@ export function Hero({
           </div>
 
           <div className="animate-hero-text-4 mt-8 flex flex-wrap items-center gap-4">
-            <Link
-              href={`#${SECTION_IDS.PROJECTS}`}
-              onClick={(event) => {
-                event.preventDefault();
-                scrollTo(SECTION_IDS.PROJECTS);
-              }}
+            <button
+              type="button"
+              onClick={() => scrollTo(SECTION_IDS.PROJECTS)}
               className="group inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded-full bg-[#00d8ff] px-8 py-2.5 text-[15px] font-semibold text-[#0a0b10] shadow-[0_0_32px_rgba(0,216,255,0.35)] transition hover:brightness-110"
             >
               See my projects
               <span className="ml-2 transition-transform group-hover:translate-x-0.5">
                 →
               </span>
-            </Link>
+            </button>
             <ResumeDownloadButton variant="link" label="Download CV" />
-            <Link
-              href={`#${SECTION_IDS.CONTACT}`}
-              onClick={(event) => {
-                event.preventDefault();
-                scrollTo(SECTION_IDS.CONTACT);
-              }}
+            <button
+              type="button"
+              onClick={() => scrollTo(SECTION_IDS.CONTACT)}
               className="inline-flex min-h-[44px] cursor-pointer items-center justify-center text-[15px] font-medium text-white/65 transition hover:text-white"
             >
               Contact me
-            </Link>
+            </button>
           </div>
 
           <p className="animate-hero-text-5 mt-8 font-mono text-xs tracking-wide text-white/35 sm:text-sm">
